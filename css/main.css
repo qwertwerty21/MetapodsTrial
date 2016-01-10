@@ -1,0 +1,816 @@
+    /*! HTML5 Boilerplate v5.2.0 | MIT License | https://html5boilerplate.com/ */
+
+    /*
+     * What follows is the result of much research on cross-browser styling.
+     * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+     * Kroc Camen, and the H5BP dev community and team.
+     */
+
+    /* ==========================================================================
+       Base styles: opinionated defaults
+       ========================================================================== */
+
+       html {
+        color: #222;
+        font-size: 1em;
+        line-height: 1.4;
+    }
+
+    /*
+     * Remove text-shadow in selection highlight:
+     * https://twitter.com/miketaylr/status/12228805301
+     *
+     * These selection rule sets have to be separate.
+     * Customize the background color to match your design.
+     */
+
+     ::-moz-selection {
+        background: #b3d4fc;
+        text-shadow: none;
+    }
+
+    ::selection {
+        background: #b3d4fc;
+        text-shadow: none;
+    }
+
+    /*
+     * A better looking default horizontal rule
+     */
+
+     hr {
+        display: block;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid #ccc;
+        margin: 1em 0;
+        padding: 0;
+    }
+
+    /*
+     * Remove the gap between audio, canvas, iframes,
+     * images, videos and the bottom of their containers:
+     * https://github.com/h5bp/html5-boilerplate/issues/440
+     */
+
+     audio,
+     canvas,
+     iframe,
+     img,
+     svg,
+     video {
+        vertical-align: middle;
+    }
+
+    /*
+     * Remove default fieldset styles.
+     */
+
+     fieldset {
+        border: 0;
+        margin: 0;
+        padding: 0;
+    }
+
+    /*
+     * Allow only vertical resizing of textareas.
+     */
+
+     textarea {
+        resize: vertical;
+    }
+
+    /* ==========================================================================
+       Browser Upgrade Prompt
+       ========================================================================== */
+
+       .browserupgrade {
+        margin: 0.2em 0;
+        background: #ccc;
+        color: #000;
+        padding: 0.2em 0;
+    }
+
+    /* ==========================================================================
+       Author's custom styles
+       ========================================================================== */
+
+       /*FONTS*/
+
+       @font-face {
+        font-family: 'pokemon_solidnormal';
+        src: url('fonts/poke-webfont.eot');
+        src: url('fonts/poke-webfont.eot?#iefix') format('embedded-opentype'),
+        url('fonts/poke-webfont.woff2') format('woff2'),
+        url('fonts/poke-webfont.woff') format('woff'),
+        url('fonts/poke-webfont.ttf') format('truetype'),
+        url('fonts/poke-webfont.svg#pokemon_solidnormal') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'pokemon_gbregular';
+        src: url('fonts/poke2-webfont.eot');
+        src: url('fonts/poke2-webfont.eot?#iefix') format('embedded-opentype'),
+        url('fonts/poke2-webfont.woff2') format('woff2'),
+        url('fonts/poke2-webfont.woff') format('woff'),
+        url('fonts/poke2-webfont.ttf') format('truetype'),
+        url('fonts/poke2-webfont.svg#pokemon_gbregular') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    /*HELPER CLASSES*/
+
+    .hideMe{
+        visibility: hidden;
+    }
+
+    .displayNone{
+        display: none;
+    }
+
+    .warning{
+        background-color: #ff0000;
+        font-family: 'pokemon_gbregular', sans-serif;
+        font-size: 1.1em;
+        text-align: center;
+    }
+
+    /*CENTER MAIN BODY*/
+
+    body{
+        background: #8B0000;
+        height: 100%;
+        width: 100%;
+    }
+
+    .center-quiz{
+        background: #031927;
+        display: block;
+        min-height: 100%;
+        left: 20%;
+        position: absolute;
+        width: 60%;     
+    }
+
+    .center-again{
+        display: block;
+        margin: 0 auto;
+        width: 56%;
+    }
+
+    /*AUDIO*/
+
+    .bgm-btn{
+        background-color: #FFD238;
+        border: 1px solid #000000;
+        border-radius: 10%;
+        color: #3069AC;
+        display: block;
+        font-family: 'pokemon_gbregular', sans-serif;
+        font-weight: bolder; 
+        height: 3em;
+        margin: 0 auto;
+        position: absolute;
+        top: 0;
+        right: 0;
+        text-shadow: -1px -1px 2px #ffffff;
+        min-width: 8%;
+    }
+
+    .bgm-btn:hover{
+        color: #ff0000;
+    }
+
+    /*START OF QUIZ SCREEN*/
+
+    h1{
+        color: #FFD238;
+        font-family: 'pokemon_solidnormal', serif;
+        font-size: 1.8em;
+        letter-spacing: 4px;
+        text-align: center;
+        text-shadow: 5px 0 0 #3069AC, -5px 0 0 #3069AC, 0 5px 0 #3069AC, 0 -5px 0 #3069AC,
+        4px 4px #3069AC, -4px -4px 0 #3069AC, 4px -4px 0 #3069AC, -4px 4px 0 #3069AC;  
+    }
+
+    .sub-head{
+        color: #000000;
+        background-color: #b4e652;
+        font-size: 2em;
+        margin: -20px;
+        text-shadow: none;
+    }
+
+    .start-img{
+        border: 4px solid #b4e652;
+        border-radius: 5%;
+        display: inline-block;
+        float: left;
+        height: 10em;
+        width: 31%;
+        margin-left: 1px;
+        margin-right: 1px;
+        margin-bottom: 5%;
+        opacity: .9;
+    }
+
+    .controls{
+        background-color: #8B0000;
+        color: #FFD238;
+        font-family: 'pokemon_gbregular', sans-serif;
+        font-size: .6em;
+        padding-left: 1%;
+
+    }
+
+    .controlsL{
+        display: inline-block;
+        float: left;
+        text-align: left;
+        width: 48%;
+    }
+
+    .controlsR{
+        display: inline-block;
+        float: right;
+        text-align: left;
+        width: 48%;
+    }
+
+    .tip{
+        color: #ffffff;
+        font-family: "Lucida Console", Monaco, monospace;
+        font-size: .7em;
+        text-align: center;
+    }
+
+    .start-msg{
+        color: #f0f0f0;
+        display: block;
+        font-size: 1.5em;
+        font-family: 'pokemon_gbregular', sans-serif;
+        text-align: center;
+    }
+
+    .start-quiz-btn{
+        background-color: #EB2224;
+        background: -webkit-linear-gradient(#EB2224 50%, #000000 53%, #d3d3d3 35%);
+        background: -moz-linear-gradient(#EB2224 50%, #000000 53%, #d3d3d3 35%);
+        background: linear-gradient(#EB2224 50%, #000000 53%, #d3d3d3 35%);
+        border: 5.5px solid #000000;
+        border-radius: 50%;
+        color: #000000;
+        display: block;
+        font-family: "Lucida Console", Monaco, monospace;
+        font-size: 1.2em;
+        font-weight: bold;
+        height: 9em;
+        margin: 0 auto;  
+        width: 9em;
+        text-shadow: -1px -1px 2px #ffffff;
+    }
+
+    /*PIKACHU MINIGAME*/
+
+    .my-pika{
+        background-image: url('../img/meta.png');
+        background-position: center;
+        -webkit-background-size: cover;
+        background-size: 11em;
+        height: 5em;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 6em;
+    }
+
+    .harden-shield{
+      background-color: #329F5B;
+      border-radius: 50%;
+      height: 5.5em;
+      width: 5.5em;
+      opacity: .5;
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+
+  }
+
+  .string-shot{
+    border-color: transparent #e4e4e4 transparent transparent;
+    border-style: solid;
+    border-width: 12px 100px 16px 0;
+    height: 0;
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    width: 0;
+    z-index: 1;
+}
+
+.struggle{
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);   
+}
+
+@keyframes shake{
+    10%, 90% {
+        transform: translate3d(0px, 0, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(5px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(0px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(8px, 0, 0);
+    }
+}
+
+.enemy{
+    background-image: url('../img/garyy.png');
+    background-position: center;
+    -webkit-background-size: cover;
+    background-size: 12em;
+    height: 10em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10em;  
+}
+
+.fire-ball{
+    background: url('../img/fireball1.png');
+    height: 64px;
+    -webkit-animation: spin .4s steps(4) infinite;
+    -o-animation: spin .4s steps(4) infinite;
+    animation: spin .4s steps(4) infinite;
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    width: 64px;
+}
+
+@-webkit-keyframes spin {
+    from { background-position: 0px; }
+    to { background-position: 256px; }
+}
+@-o-keyframes spin {
+    from { background-position: 0px; }
+    to { background-position: 256px; }
+}
+@-moz-keyframes spin {
+    from { background-position: 0px; }
+    to { background-position: 256px; }
+}
+@keyframes spin {
+    from { background-position: 0px; }
+    to { background-position: 256px; }
+}
+
+
+/*Status HuD*/
+
+.status-update{
+    color: #f0f0f0;
+    text-align: center;
+}
+
+.timer{
+    display: block; 
+    font-size: 1.5em;
+}
+
+.heads-up{
+    color: #b4e652;
+    display: block;
+    font-family: 'pokemon_gbregular', sans-serif;
+    font-size: .6em; 
+}
+
+.def-spd{
+    color: #ff0000;
+    display: inline-block;
+    font-family: 'pokemon_gbregular', sans-serif;
+    font-size: .6em;
+    width: 49%;
+}
+
+/*QUIZ QUESTIONS*/
+
+form{
+    position: relative;
+    left: 10%;
+    top: 4em;
+}
+
+.quiz-question{
+    color: #F2DC5D;
+    font-family: 'pokemon_gbregular', sans-serif;
+    font-size: 1.3em;
+    font-weight: bolder;
+    text-align: center;
+    text-shadow: -1px -1px 2px #262322;
+}
+
+.read-text{
+    color: #f0f0f0;
+    display: inline;
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 1.2em;
+    line-height: 2em;
+    padding-left: 3%;
+}
+
+/*BUTTONS*/
+
+.poke-btn:hover{
+    color: #F2DC5D;
+    -ms-transform: rotate(15deg); 
+    -webkit-transform: rotate(15deg); 
+    transform: rotate(15deg);
+    -webkit-transition: 100ms linear all;
+    -moz-transition: 100ms linear all;
+    -o-transition: 100ms linear all;
+    transition: 100ms linear all;
+    text-shadow: 3px 4px 1px #000000;
+}
+
+.next-btn, .back-btn{
+    border: 1px solid #000000;
+    border-radius: 50%;
+    display: inline-block;
+    font-family: "Lucida Console", Monaco, monospace;
+    font-weight: bolder; 
+    height: 4.5em;
+    margin-top: 10%;
+    padding: 1em;
+    text-shadow: -1px -1px 2px #ffffff;
+}
+
+.next-btn{
+    background-color: #1098F7;
+    background: -webkit-linear-gradient(#1098F7 50%, #000000 53%, #d3d3d3 35%);
+    background: -moz-linear-gradient(#1098F7 50%, #000000 53%, #d3d3d3 35%);
+    background: linear-gradient(#1098F7 50%, #000000 53%, #d3d3d3 35%);
+}
+
+.back-btn{
+    background-color: #F75C03;
+    background: -webkit-linear-gradient(#F75C03 50%, #000000 53%, #d3d3d3 35%);
+    background: -moz-linear-gradient(#F75C03 50%, #000000 53%, #d3d3d3 35%);
+    background: linear-gradient(#F75C03 50%, #000000 53%, #d3d3d3 35%);
+}
+
+.try-again-btn{
+    background-color: #7FB069;
+    background: -webkit-linear-gradient(#7FB069 50%, #000000 53%, #d3d3d3 35%);
+    background: -moz-linear-gradient(#7FB069 50%, #000000 53%, #d3d3d3 35%);
+    background: linear-gradient(#7FB069 50%, #000000 53%, #d3d3d3 35%);
+    border: 5.5px solid #000000;
+    border-radius: 50%;
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 1.2em;
+    font-weight: bolder;
+    height: 9em;
+    position: absolute;
+    bottom: 70%;
+    padding: 1em;
+    text-shadow: -1px -1px 2px #ffffff;
+    width: 9em;
+}
+
+/*END OF QUIZ*/
+
+.end-quiz{
+    color: #ffffff;
+    margin-left: 10%;
+}
+
+h2{
+    color: #ffffff;
+    font-family: monospace; 
+    font-size: 1.5em;
+    padding-top: 1%;
+    text-align: center;
+}
+
+.enter-name-sect{
+    text-align: center;
+}
+
+.enter-name-here{
+    color: #000000;
+    width: 12em;
+}    
+
+.enter-name-btn{
+    background-color: #E4572E;
+    border: 1px solid #000000;
+    border-radius: 10%;
+    color: #fffffff;
+    font-family: 'pokemon_gbregular', sans-serif;
+    font-weight: bolder;
+    height: 2.5em;
+    text-shadow: -1px -1px 2px #000000;
+}
+
+.enter-name-btn:hover{
+    color: #ff0000;
+    background-color: #f0f0f0;
+}
+
+.new-high-score{
+    color: #EB2224;
+    font-family: "Lucida Console", Monaco, monospace;
+    text-align: center;
+}
+
+.elite4-table{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.elite4-table td{
+    color: #F2DC5D;
+    font-size: 1em;
+    font-family: 'pokemon_gbregular', sans-serif;
+    padding-right: 2em; 
+}
+
+
+
+
+    /* ==========================================================================
+       Helper classes
+       ========================================================================== */
+
+    /*
+     * Hide visually and from screen readers:
+     */
+
+     .hidden {
+        display: none !important;
+    }
+
+    /*
+     * Hide only visually, but have it available for screen readers:
+     * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+     */
+
+     .visuallyhidden {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+
+    /*
+     * Extends the .visuallyhidden class to allow the element
+     * to be focusable when navigated to via the keyboard:
+     * https://www.drupal.org/node/897638
+     */
+
+     .visuallyhidden.focusable:active,
+     .visuallyhidden.focusable:focus {
+        clip: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        position: static;
+        width: auto;
+    }
+
+    /*
+     * Hide visually and from screen readers, but maintain layout
+     */
+
+     .invisible {
+        visibility: hidden;
+    }
+
+    /*
+     * Clearfix: contain floats
+     *
+     * For modern browsers
+     * 1. The space content is one way to avoid an Opera bug when the
+     *    `contenteditable` attribute is included anywhere else in the document.
+     *    Otherwise it causes space to appear at the top and bottom of elements
+     *    that receive the `clearfix` class.
+     * 2. The use of `table` rather than `block` is only necessary if using
+     *    `:before` to contain the top-margins of child elements.
+     */
+
+     .clearfix:before,
+     .clearfix:after {
+        content: " "; /* 1 */
+        display: table; /* 2 */
+    }
+
+    .clearfix:after {
+        clear: both;
+    }
+
+    /* ==========================================================================
+       EXAMPLE Media Queries for Responsive Design.
+       These examples override the primary ('mobile first') styles.
+       Modify as content requires.
+       ========================================================================== */
+
+       @media only screen and (max-width: 1300px) {
+        /* Style adjustments for viewports that meet the condition */
+
+        h1{
+            font-size: 1.5em;
+            transition: all ease 2s;
+        }
+
+        .sub-head{
+            font-size: 1.5em;
+            margin-bottom: -1em;
+            transition: all ease 2s;
+        }
+
+        .start-img{
+            display: none;
+        }
+
+        img:nth-child(2){
+            display: block;
+            margin: 0 auto;
+            transition: all ease 2s;
+            width: 100%;    
+        }
+
+        .controls{
+            border-radius: 5%;
+            clear: both;
+            display: block;
+            font-size: .7em;
+            transition: all ease 2s;
+        }
+
+        .controlsL{
+            display: block;
+            float: none;
+            margin: 0 auto;
+            padding: 1%;
+            text-align: center;
+            width: 90%;
+        }
+
+        .controlsR{
+            display: block;
+            float: none;
+            margin: 0 auto;
+            padding: 1%;
+            text-align: center;
+            width: 98%;
+        }
+
+        .elite4-table td{
+            font-size: .8em;
+            padding-right: 1.3em; 
+        }
+
+        .try-again-btn{
+            bottom: 50%;
+            right: 20%;
+        }
+    }
+
+    @media only screen and (max-width: 1100px) {
+
+        .quiz-question{
+            font-size: 1em;   
+        }
+
+        .read-text{
+            font-size: .9em;
+        }
+
+        .status-update{
+            font-size: .8em;
+        }
+
+        .warning{
+            font-size: .7em;
+        }
+
+    }
+
+    @media only screen and (max-width: 700px) {
+
+        body{
+            background-color: #031927;
+            transition: all ease 2s;
+        }
+
+        .center-again{
+            width: 100%;
+        }
+
+        .quiz-question{
+            font-size: .8em;   
+        }
+
+        .read-text{
+            font-size: .7em;
+        }
+
+    }
+
+    @media print,
+    (-webkit-min-device-pixel-ratio: 1.25),
+    (min-resolution: 1.25dppx),
+    (min-resolution: 120dpi) {
+        /* Style adjustments for high resolution devices */
+    }
+
+    /* ==========================================================================
+       Print styles.
+       Inlined to avoid the additional HTTP request:
+       http://www.phpied.com/delay-loading-your-print-css/
+       ========================================================================== */
+
+       @media print {
+        *,
+        *:before,
+        *:after {
+            background: transparent !important;
+            color: #000 !important; /* Black prints faster:
+            http://www.sanbeiji.com/archives/953 */
+            box-shadow: none !important;
+            text-shadow: none !important;
+        }
+
+        a,
+        a:visited {
+            text-decoration: underline;
+        }
+
+        a[href]:after {
+            content: " (" attr(href) ")";
+        }
+
+        abbr[title]:after {
+            content: " (" attr(title) ")";
+        }
+
+        /*
+         * Don't show links that are fragment identifiers,
+         * or use the `javascript:` pseudo protocol
+         */
+
+         a[href^="#"]:after,
+         a[href^="javascript:"]:after {
+            content: "";
+        }
+
+        pre,
+        blockquote {
+            border: 1px solid #999;
+            page-break-inside: avoid;
+        }
+
+        /*
+         * Printing Tables:
+         * http://css-discuss.incutio.com/wiki/Printing_Tables
+         */
+
+         thead {
+            display: table-header-group;
+        }
+
+        tr,
+        img {
+            page-break-inside: avoid;
+        }
+
+        img {
+            max-width: 100% !important;
+        }
+
+        p,
+        h2,
+        h3 {
+            orphans: 3;
+            widows: 3;
+        }
+
+        h2,
+        h3 {
+            page-break-after: avoid;
+        }
+    }
