@@ -434,12 +434,12 @@
 				
 				for( var y = 0; y < highScores.length; y++){
 					if( y === 0 ){
-						writeChampsNamesHere[y].innerText = "PokeChamp " + highScores[y].name;
-						writeChampsTimesHere[y].innerText = highScores[y].mstime + "s";
+						writeChampsNamesHere[y].textContent = "PokeChamp " + highScores[y].name;
+						writeChampsTimesHere[y].textContent = highScores[y].mstime + "s";
 					}
 					else{
-						writeChampsNamesHere[y].innerText = "Elite Four " + highScores[y].name;
-						writeChampsTimesHere[y].innerText = highScores[y].mstime + "s";
+						writeChampsNamesHere[y].textContent = "Elite Four " + highScores[y].name;
+						writeChampsTimesHere[y].textContent = highScores[y].mstime + "s";
 					}
 				}
 
