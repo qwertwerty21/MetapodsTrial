@@ -10,7 +10,7 @@
        Base styles: opinionated defaults
        ========================================================================== */
 
-       html {
+    html {
         color: #222;
         font-size: 1em;
         line-height: 1.4;
@@ -97,7 +97,7 @@
 
        /*FONTS*/
 
-       @font-face {
+    @font-face {
         font-family: 'pokemon_solidnormal';
         src: url('fonts/poke-webfont.eot');
         src: url('fonts/poke-webfont.eot?#iefix') format('embedded-opentype'),
@@ -627,6 +627,30 @@ h2{
        These examples override the primary ('mobile first') styles.
        Modify as content requires.
        ========================================================================== */
+
+       /*Screen Orientation Media Queries*/
+
+       @media all and ( orientation:portrait ){
+
+        .center-again{
+            display: none;
+        }
+
+        .landscape-warning{
+            background-color: #ff0000;
+            color: #ffffff;
+            font-size: 2em;
+            display: block;
+            margin-top: 50%;
+            text-align: center;
+        }
+       }
+
+       @media all and ( orientation:landscape ){
+        .landscape-warning{
+            display: none;
+        }
+       }
 
        @media only screen and (max-width: 1300px) {
         /* Style adjustments for viewports that meet the condition */

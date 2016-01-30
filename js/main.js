@@ -779,8 +779,7 @@
 		};
 
 		mainGameLoop();
-		
-
+	
 
 		window.addEventListener( "load", useStringShot );
 		window.addEventListener( "load", useHarden );
