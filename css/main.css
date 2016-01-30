@@ -639,7 +639,8 @@ h2{
         .landscape-warning{
             background-color: #ff0000;
             color: #ffffff;
-            font-size: 2em;
+            font-family: 'pokemon_gbregular', sans-serif;
+            font-size: 1.2em;
             display: block;
             margin-top: 50%;
             text-align: center;
