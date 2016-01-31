@@ -195,8 +195,6 @@
 
 				ms = 0;
 				startTime = window.setInterval( tickTock, 10 );
-
-				window.scrollTo( 0, 1 );
 			};
 
 			var showTds = function(){
@@ -796,3 +794,11 @@
 		document.myForm.nextBtn.addEventListener( "click", onNextBtn );
 		document.myForm.backBtn.addEventListener( "click", onBack );
 		document.myForm.tryAgainBtn.addEventListener( "click", onTryAgain );
+
+		window.addEventListener("load",function() {
+	// Set a timeout...
+	setTimeout(function(){
+		// Hide the address bar!
+		window.scrollTo(0, 1);
+	}, 0);
+});
