@@ -221,7 +221,7 @@
         background-color: #8B0000;
         color: #FFD238;
         font-family: 'pokemon_gbregular', sans-serif;
-        font-size: .4em;
+        font-size: .6em;
         padding-left: 1%;
     }
 
@@ -638,7 +638,7 @@ h2{
 
        /*Screen Orientation Media Queries*/
 
-       @media all and ( orientation:portrait ){
+    @media all and ( orientation:portrait ){
 
         .center-again{
             display: none;
@@ -651,7 +651,9 @@ h2{
             font-size: 1.2em;
             display: block;
             margin-top: 50%;
+            position: fixed;
             text-align: center;
+            z-index: 3;
         }
     }
 
