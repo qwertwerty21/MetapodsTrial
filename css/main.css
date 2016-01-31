@@ -134,7 +134,7 @@
     .warning{
         background-color: #ff0000;
         font-family: 'pokemon_gbregular', sans-serif;
-        font-size: 1.1em;
+        font-size: .7em;
         text-align: center;
     }
 
@@ -221,9 +221,8 @@
         background-color: #8B0000;
         color: #FFD238;
         font-family: 'pokemon_gbregular', sans-serif;
-        font-size: .6em;
+        font-size: .4em;
         padding-left: 1%;
-
     }
 
     .controlsL{
@@ -264,7 +263,7 @@
         border-radius: 50%;
         color: #000000;
         display: block;
-        font-family: "Lucida Console", Monaco, monospace;
+        font-family: 'pokemon_gbregular', sans-serif;
         font-size: 1.2em;
         font-weight: bold;
         height: 9em;
@@ -446,9 +445,10 @@ form{
     border: 1px solid #000000;
     border-radius: 50%;
     display: inline-block;
-    font-family: "Lucida Console", Monaco, monospace;
+    font-family: 'pokemon_gbregular', sans-serif;
+    font-size: .8em;
     font-weight: bolder; 
-    height: 4.5em;
+    height: 5.5em;
     margin-top: 10%;
     padding: 1em;
     text-shadow: -1px -1px 2px #ffffff;
@@ -475,15 +475,15 @@ form{
     background: linear-gradient(#7FB069 50%, #000000 53%, #d3d3d3 35%);
     border: 5.5px solid #000000;
     border-radius: 50%;
-    font-family: "Lucida Console", Monaco, monospace;
-    font-size: 1.2em;
+    font-family: 'pokemon_gbregular', sans-serif;
+    font-size: .8em;
     font-weight: bolder;
-    height: 9em;
+    height: 12em;
     position: absolute;
     bottom: 70%;
     padding: 1em;
     text-shadow: -1px -1px 2px #ffffff;
-    width: 9em;
+    width: 12em;
 }
 
 /*END OF QUIZ*/
@@ -495,9 +495,9 @@ form{
 
 h2{
     color: #ffffff;
-    font-family: monospace; 
-    font-size: 1.5em;
-    padding-top: 1%;
+    font-family: 'pokemon_gbregular', sans-serif;
+    font-size: .7em;
+    padding-top: 3%;
     text-align: center;
 }
 
@@ -505,8 +505,16 @@ h2{
     text-align: center;
 }
 
+    .enter-name-sect label{
+        font-family: 'pokemon_gbregular', sans-serif;
+        font-size: .7em;
+    }
+
 .enter-name-here{
     color: #000000;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     width: 12em;
 }    
 
@@ -514,7 +522,7 @@ h2{
     background-color: #E4572E;
     border: 1px solid #000000;
     border-radius: 10%;
-    color: #fffffff;
+    color: #ffffff;
     font-family: 'pokemon_gbregular', sans-serif;
     font-weight: bolder;
     height: 2.5em;
@@ -528,7 +536,8 @@ h2{
 
 .new-high-score{
     color: #EB2224;
-    font-family: "Lucida Console", Monaco, monospace;
+    font-family: 'pokemon_gbregular', sans-serif;
+    font-size: .8em;
     text-align: center;
 }
 
@@ -727,11 +736,6 @@ h2{
         .status-update{
             font-size: .8em;
         }
-
-        .warning{
-            font-size: .7em;
-        }
-
     }
 
     @media only screen and (max-width: 700px) {
@@ -745,12 +749,30 @@ h2{
             width: 100%;
         }
 
+        .bgm-btn{
+            position: fixed;
+            top: 0;
+            right: 0;
+        }
+
         .quiz-question{
             font-size: .8em;   
         }
 
         .read-text{
             font-size: .7em;
+        }
+
+        .next-btn{
+            position: fixed;
+            bottom: 40%;
+            right: 0;
+        }
+
+        .back-btn{
+            position: fixed;
+            bottom: 15%;
+            right: 0;
         }
 
         .my-pika{

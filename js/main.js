@@ -146,9 +146,10 @@
 				$( "#stats" ).removeClass( "hideMe" );
 				$( "#nextBtn" ).removeClass( "hideMe" );
 				$( "#startOfQuiz" ).addClass( "displayNone" );
+				$( "h1" ).addClass( "displayNone" );
 
 				$( "#pikachu" ).removeClass( "displayNone" );
-				setPosition( "pikachu", "350" );
+				setPosition( "pikachu", "200" );
 				$( "#enemy1" ).removeClass( "displayNone" );
 				setPosition( "enemy1", "350", "0", true );
 
@@ -357,6 +358,7 @@
 				$( "#enemy1" ).addClass( "displayNone" );
 				$( "#fireball" ).addClass( "displayNone" );
 
+				$( "h1" ).removeClass( "displayNone" );	
 				$( "#enterNameSect" ).removeClass( "hideMe" );
 				$( "#tryAgainBtn" ).removeClass( "displayNone" );
 
