@@ -265,6 +265,10 @@
 						userAnsArray.push( userAns );
 						
 						questionCount = questionCount + 1;
+						
+						//clear radio btn selection
+						$( 'input[name="optionBtn"]' ).prop( "checked", false );
+
 						loadNextQuestion();
 					}		
 				}

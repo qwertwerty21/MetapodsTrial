@@ -264,7 +264,7 @@
         border-radius: 50%;
         color: #000000;
         display: block;
-        font-family: "Lucida Console", Monaco, monospace;
+        font-family: 'pokemon_gbregular', sans-serif;
         font-size: 1.2em;
         font-weight: bold;
         height: 9em;
@@ -447,9 +447,9 @@ form{
     border: 1px solid #000000;
     border-radius: 50%;
     display: inline-block;
-    font-family: "Lucida Console", Monaco, monospace;
-    font-weight: bolder; 
-    height: 4.5em;
+    font-family: 'pokemon_gbregular', sans-serif;
+    font-size: .8em; 
+    height: 5.5em;
     margin-top: 10%;
     padding: 1em;
     text-shadow: -1px -1px 2px #ffffff;
@@ -476,15 +476,15 @@ form{
     background: linear-gradient(#7FB069 50%, #000000 53%, #d3d3d3 35%);
     border: 5.5px solid #000000;
     border-radius: 50%;
-    font-family: "Lucida Console", Monaco, monospace;
-    font-size: 1.2em;
+    font-family: 'pokemon_gbregular', sans-serif;
+    font-size: .8em;
     font-weight: bolder;
-    height: 9em;
+    height: 12em;
     position: absolute;
     bottom: 70%;
     padding: 1em;
     text-shadow: -1px -1px 2px #ffffff;
-    width: 9em;
+    width: 12em;
 }
 
 /*END OF QUIZ*/
@@ -496,15 +496,19 @@ form{
 
 h2{
     color: #ffffff;
-    font-family: monospace; 
-    font-size: 1.5em;
-    padding-top: 1%;
+    font-family: 'pokemon_gbregular', sans-serif;
+    font-size: .9em;
+    padding-top: 2%;
     text-align: center;
 }
 
 .enter-name-sect{
     text-align: center;
 }
+    
+    .enter-name-sect label{
+        font-family: 'pokemon_gbregular', sans-serif;
+    }
 
 .enter-name-here{
     color: #000000;
@@ -529,7 +533,7 @@ h2{
 
 .new-high-score{
     color: #EB2224;
-    font-family: "Lucida Console", Monaco, monospace;
+    font-family: 'pokemon_gbregular', sans-serif;
     text-align: center;
 }
 
