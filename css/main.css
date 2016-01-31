@@ -10,7 +10,7 @@
        Base styles: opinionated defaults
        ========================================================================== */
 
-    html {
+       html {
         color: #222;
         font-size: 1em;
         line-height: 1.4;
@@ -97,7 +97,7 @@
 
        /*FONTS*/
 
-    @font-face {
+       @font-face {
         font-family: 'pokemon_solidnormal';
         src: url('fonts/poke-webfont.eot');
         src: url('fonts/poke-webfont.eot?#iefix') format('embedded-opentype'),
@@ -264,7 +264,7 @@
         border-radius: 50%;
         color: #000000;
         display: block;
-        font-family: 'pokemon_gbregular', sans-serif;
+        font-family: "Lucida Console", Monaco, monospace;
         font-size: 1.2em;
         font-weight: bold;
         height: 9em;
@@ -278,13 +278,13 @@
     .my-pika{
         background-image: url('../img/meta.png');
         background-position: center;
-        -webkit-background-size: cover;
         background-size: 11em;
         height: 5em;
         position: absolute;
         top: 0;
         left: 0;
         width: 6em;
+        z-index: 1;
     }
 
     .harden-shield{
@@ -296,7 +296,7 @@
       position: absolute;
       top: -9999px;
       left: -9999px;
-
+      z-index: 2;
   }
 
   .string-shot{
@@ -337,7 +337,6 @@
 .enemy{
     background-image: url('../img/garyy.png');
     background-position: center;
-    -webkit-background-size: cover;
     background-size: 12em;
     height: 10em;
     position: absolute;
@@ -447,9 +446,9 @@ form{
     border: 1px solid #000000;
     border-radius: 50%;
     display: inline-block;
-    font-family: 'pokemon_gbregular', sans-serif;
-    font-size: .8em; 
-    height: 5.5em;
+    font-family: "Lucida Console", Monaco, monospace;
+    font-weight: bolder; 
+    height: 4.5em;
     margin-top: 10%;
     padding: 1em;
     text-shadow: -1px -1px 2px #ffffff;
@@ -476,15 +475,15 @@ form{
     background: linear-gradient(#7FB069 50%, #000000 53%, #d3d3d3 35%);
     border: 5.5px solid #000000;
     border-radius: 50%;
-    font-family: 'pokemon_gbregular', sans-serif;
-    font-size: .8em;
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 1.2em;
     font-weight: bolder;
-    height: 12em;
+    height: 9em;
     position: absolute;
     bottom: 70%;
     padding: 1em;
     text-shadow: -1px -1px 2px #ffffff;
-    width: 12em;
+    width: 9em;
 }
 
 /*END OF QUIZ*/
@@ -496,19 +495,15 @@ form{
 
 h2{
     color: #ffffff;
-    font-family: 'pokemon_gbregular', sans-serif;
-    font-size: .9em;
-    padding-top: 2%;
+    font-family: monospace; 
+    font-size: 1.5em;
+    padding-top: 1%;
     text-align: center;
 }
 
 .enter-name-sect{
     text-align: center;
 }
-    
-    .enter-name-sect label{
-        font-family: 'pokemon_gbregular', sans-serif;
-    }
 
 .enter-name-here{
     color: #000000;
@@ -533,7 +528,7 @@ h2{
 
 .new-high-score{
     color: #EB2224;
-    font-family: 'pokemon_gbregular', sans-serif;
+    font-family: "Lucida Console", Monaco, monospace;
     text-align: center;
 }
 
@@ -649,15 +644,15 @@ h2{
             margin-top: 50%;
             text-align: center;
         }
-       }
+    }
 
-       @media all and ( orientation:landscape ){
+    @media all and ( orientation:landscape ){
         .landscape-warning{
             display: none;
         }
-       }
+    }
 
-       @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1300px) {
         /* Style adjustments for viewports that meet the condition */
 
         h1{
@@ -758,14 +753,42 @@ h2{
             font-size: .7em;
         }
 
-    }
+        .my-pika{
+            background-size: 6.5em;
+            height: 3.5em;
+            width: 4.5em;
+        }
 
-    @media print,
-    (-webkit-min-device-pixel-ratio: 1.25),
-    (min-resolution: 1.25dppx),
-    (min-resolution: 120dpi) {
-        /* Style adjustments for high resolution devices */
-    }
+        .enemy{
+            background-size: 7em;
+            height: 6em;
+            width: 7em;  
+        }
+
+        .fire-ball{
+            background-position: center;
+            background-size: cover;
+            height: 1.5em;
+            width: 1.5em;
+        }
+
+        .harden-shield{
+          height: 3.5em;
+          width: 3.5em;
+          z-index: 2;
+        }
+
+        .string-shot{
+          border-width: 6px 80px 8px 0;     
+        }
+}
+
+@media print,
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 1.25dppx),
+(min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
 
     /* ==========================================================================
        Print styles.

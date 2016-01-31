@@ -783,7 +783,75 @@
 		};
 
 		mainGameLoop();
-	
+
+		//mobile touch events
+
+		(function(){
+			
+			var myPika = document.getElementById( "pikachu" );
+
+			var pikaHamManager = new Hammer( myPika );
+
+			pikaHamManager.on( "panleft", function( e ){
+				ensureBoundaries( "pikachu" );
+				$( "#pikachu" ).animate( { top:"-=5px" }, 1 );
+			});
+
+			pikaHamManager.on( "panright", function( e ){
+				ensureBoundaries( "pikachu" );
+				$( "#pikachu" ).animate( { top:"+=5px" }, 1 );
+			});
+
+			pikaHamManager.on( "tap", function( e ){
+				if( gameOver === false && powerPoints === 0 ){
+
+					useStruggle();
+				}
+
+				else if( gameOver === false && powerPoints	> 0 ){
+
+					if( getXPosition( "stringshot" ) < 355 ){
+
+						var pikaYPos = getYPosition( "pikachu" );
+						var inFrontOfPika = getXPosition( "pikachu" )  / 6;
+
+						$( "#stringshot" ).removeClass( "displayNone" );
+						$( "#stringshot" ).css( "border-color", "transparent #e4e4e4 transparent transparent" );
+						setPosition( "stringshot", pikaYPos, inFrontOfPika );
+
+						stringshotFired = true;
+
+						powerPoints = powerPoints - 1;
+						$( "#hud" ).html( "Metapod used Stringshot! Enemy Spd reduced.<br> PP: " + powerPoints + "/10" );
+					}
+				}
+			});
+
+			pikaHamManager.on( "press", function( e ){
+				if( gameOver === false && powerPoints === 0 ){
+							
+							useStruggle();
+						}
+
+						else if( gameOver === false && powerPoints	> 0 ){
+
+							var pikaYPos = getYPosition( "pikachu" );
+
+							$( "#harden" ).removeClass( "displayNone" );
+							setPosition( "harden", pikaYPos, "0" );
+
+							powerPoints	= powerPoints	- 1;
+							damageDealtByEnemy = Math.floor( damageDealtByEnemy	/ 2 );
+							$( "#hud" ).html( "Metapod used Harden! Enemy Dmg reduced.<br> PP: " + powerPoints + "/10" );
+							$( "#dmgTaken" ).html( "Enemy Dmg: " + damageDealtByEnemy );
+
+							setTimeout( function(){ $( "#harden" ).addClass( "displayNone" ); }, 500 );
+						}
+			});
+
+		})();
+
+
 
 		window.addEventListener( "load", useStringShot );
 		window.addEventListener( "load", useHarden );
@@ -794,11 +862,3 @@
 		document.myForm.nextBtn.addEventListener( "click", onNextBtn );
 		document.myForm.backBtn.addEventListener( "click", onBack );
 		document.myForm.tryAgainBtn.addEventListener( "click", onTryAgain );
-
-		window.addEventListener("load",function() {
-	// Set a timeout...
-	setTimeout(function(){
-		// Hide the address bar!
-		window.scrollTo(0, 1);
-	}, 0);
-});
