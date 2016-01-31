@@ -195,6 +195,8 @@
 
 				ms = 0;
 				startTime = window.setInterval( tickTock, 10 );
+
+				window.scrollTo( 0, 1 );
 			};
 
 			var showTds = function(){
