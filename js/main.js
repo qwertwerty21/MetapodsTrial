@@ -769,12 +769,12 @@
 
 			var pikaHamManager = new Hammer( myPika );
 
-			pikaHamManager.on( "panup", function( e ){
+			pikaHamManager.on( "panleft", function( e ){
 				ensureBoundaries( "pikachu" );
 				$( "#pikachu" ).animate( { top:"-=5px" }, 1 );
 			});
 
-			pikaHamManager.on( "pandown", function( e ){
+			pikaHamManager.on( "panright", function( e ){
 				ensureBoundaries( "pikachu" );
 				$( "#pikachu" ).animate( { top:"+=5px" }, 1 );
 			});
@@ -806,24 +806,24 @@
 
 			pikaHamManager.on( "press", function( e ){
 				if( gameOver === false && powerPoints === 0 ){
+							
+							useStruggle();
+						}
 
-					useStruggle();
-				}
+						else if( gameOver === false && powerPoints	> 0 ){
 
-				else if( gameOver === false && powerPoints	> 0 ){
+							var pikaYPos = getYPosition( "pikachu" );
 
-					var pikaYPos = getYPosition( "pikachu" );
+							$( "#harden" ).removeClass( "displayNone" );
+							setPosition( "harden", pikaYPos, "0" );
 
-					$( "#harden" ).removeClass( "displayNone" );
-					setPosition( "harden", pikaYPos, "0" );
+							powerPoints	= powerPoints	- 1;
+							damageDealtByEnemy = Math.floor( damageDealtByEnemy	/ 2 );
+							$( "#hud" ).html( "Metapod used Harden! Enemy Dmg reduced.<br> PP: " + powerPoints + "/10" );
+							$( "#dmgTaken" ).html( "Enemy Dmg: " + damageDealtByEnemy );
 
-					powerPoints	= powerPoints	- 1;
-					damageDealtByEnemy = Math.floor( damageDealtByEnemy	/ 2 );
-					$( "#hud" ).html( "Metapod used Harden! Enemy Dmg reduced.<br> PP: " + powerPoints + "/10" );
-					$( "#dmgTaken" ).html( "Enemy Dmg: " + damageDealtByEnemy );
-
-					setTimeout( function(){ $( "#harden" ).addClass( "displayNone" ); }, 500 );
-				}
+							setTimeout( function(){ $( "#harden" ).addClass( "displayNone" ); }, 500 );
+						}
 			});
 
 		})();
@@ -839,6 +839,4 @@
 		document.myForm.nextBtn.addEventListener( "click", onNextBtn );
 		document.myForm.backBtn.addEventListener( "click", onBack );
 		document.myForm.tryAgainBtn.addEventListener( "click", onTryAgain );
-		document.body.addEventListener('touchmove', function(event) {
-			event.preventDefault();
-		}, false); 
+		
