@@ -15,13 +15,13 @@
 				correctAnswer: 3
 			},
 			{
-				question: "What will you do this vacation?",
-				choices: ["Because I cleaned the classroom.", "I will play games and sleep.", "I can't wait!", "I are going to eat chicken."],
-				correctAnswer: 1
+				question: "Who is she?",
+				choices: ["I am Sunny.", "I'm fine. And you?", "I can't wait!", "She is my mom."],
+				correctAnswer: 3
 			},
 			{
-				question: "Who is taller, Hayun or Eunoo?",
-				choices: ["Eunoo is skinnier than Gwangyeon.", "Hayun is taller than Eunoo.", "I am taller than you.", "She is shorter than me."],
+				question: "What time is it?",
+				choices: ["I'm hungry.", "I'm 12 years old.", "It's time for lunch!", "I can't swim."],
 				correctAnswer: 1
 			},
 			{
@@ -30,8 +30,8 @@
 				correctAnswer: 3
 			},
 			{
-				question: "What's your favorite subject?",
-				choices: ["I'm from Korea.", "I will join the tennis club.", "My favorite color is red.", "My favorite subject is English."],
+				question: "Can I ____ you?",
+				choices: ["okay", "run", "swim", "help"],
 				correctAnswer: 3
 			},
 			{
@@ -40,18 +40,18 @@
 				correctAnswer: 2
 			},
 			{
-				question: "_____ can I get to the airport?",
+				question: "_____ can I get to the park?",
 				choices: ["How", "Where", "Why", "What"],
 				correctAnswer: 0
 			},
 			{
-				question: "Which is your favorite season?",
-				choices: ["I like rain.", "I will play in the snow.", "My favorite season is Fall.", "My favorite season is July."],
+				question: "Which is your favorite color?",
+				choices: ["I like rain.", "I will play in the snow.", "My favorite color is red.", "My favorite color is July."],
 				correctAnswer: 2
 			},
 			{
-				question: "Which is ________, a horse or an elephant?",
-				choices: ["happy", "big", "bigger", "biggest"],
+				question: "How are you?",
+				choices: ["I'm happy.", "I'm big.", "I'm Hayun.", "He is sad."],
 				correctAnswer: 2
 			},
 			{
@@ -70,7 +70,7 @@
 				correctAnswer: 3
 			},
 			{
-				question: "What do you want to be in the future?",
+				question: "What do you want to be?",
 				choices: ["I want to be a doctor.", "I can't sing.", "I can't wait!", "I am from America."],
 				correctAnswer: 0
 			}
