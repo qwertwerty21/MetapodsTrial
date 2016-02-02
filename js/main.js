@@ -767,18 +767,14 @@
 			
 			var myPika = document.getElementById( "pikachu" );
 
-			var options = {
-				preventDefault: true
-			};
+			var pikaHamManager = new Hammer( myPika );
 
-			var pikaHamManager = new Hammer( myPika, options );
-
-			pikaHamManager.on( "panup", function( e ){
+			pikaHamManager.on( "panleft", function( e ){
 				ensureBoundaries( "pikachu" );
 				$( "#pikachu" ).animate( { top:"-=5px" }, 1 );
 			});
 
-			pikaHamManager.on( "pandown", function( e ){
+			pikaHamManager.on( "panright", function( e ){
 				ensureBoundaries( "pikachu" );
 				$( "#pikachu" ).animate( { top:"+=5px" }, 1 );
 			});
