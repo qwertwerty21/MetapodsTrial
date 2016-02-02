@@ -767,7 +767,11 @@
 			
 			var myPika = document.getElementById( "pikachu" );
 
-			var pikaHamManager = new Hammer( myPika );
+			var options = {
+				preventDefault: true
+			};
+
+			var pikaHamManager = new Hammer( myPika, options );
 
 			pikaHamManager.on( "panup", function( e ){
 				ensureBoundaries( "pikachu" );
