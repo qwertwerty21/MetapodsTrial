@@ -73,31 +73,6 @@
 				question: "What do you want to be in the future?",
 				choices: ["I want to be a doctor.", "I can't sing.", "I can't wait!", "I am from America."],
 				correctAnswer: 0
-			},
-			{
-				question: "What did you do yesterday?",
-				choices: ["I washed my dog.", "I will read comic books.", "I am going to swim.", "I am eating pizza."],
-				correctAnswer: 0
-			},
-			{
-				question: "What are you doing?",
-				choices: ["I am cooking.", "I run.", "You are skating.", "I am go to school."],
-				correctAnswer: 0
-			},
-			{
-				question: "You _______ run in the classroom.",
-				choices: ["don't not", "usually like", "should not", "good at"],
-				correctAnswer: 2
-			},
-			{
-				question: "How do you get to school?",
-				choices: ["I am good at skiing.", "I walk to school.", "I ride my bike to the park.", "I like playing at school."],
-				correctAnswer: 1
-			},
-			{
-				question: "May I go to the restroom?",
-				choices: ["No, you may not.", "I can't wait!", "Yes, I like chicken, too.", "He can swim."],
-				correctAnswer: 0
 			}
 			];
 
@@ -794,12 +769,12 @@
 
 			var pikaHamManager = new Hammer( myPika );
 
-			pikaHamManager.on( "panleft", function( e ){
+			pikaHamManager.on( "panup", function( e ){
 				ensureBoundaries( "pikachu" );
 				$( "#pikachu" ).animate( { top:"-=5px" }, 1 );
 			});
 
-			pikaHamManager.on( "panright", function( e ){
+			pikaHamManager.on( "pandown", function( e ){
 				ensureBoundaries( "pikachu" );
 				$( "#pikachu" ).animate( { top:"+=5px" }, 1 );
 			});
