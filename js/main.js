@@ -837,12 +837,12 @@
 			var backBtnHamManager = new Hammer( backBtnObj );
 
 			nextBtnHamManager.on( "tap", function( e ){
-				e.preventDefault();
+				e.gesture.srcEvent.preventDefault();
 				onNextBtn();
 			});
 
 			backBtnHamManager.on( "tap", function( e ){
-				e.preventDefault();
+				e.gesture.srcEvent.preventDefault();
 				onBack();
 			});
 
