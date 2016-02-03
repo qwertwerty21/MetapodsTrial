@@ -828,6 +828,26 @@
 
 		})();
 
+		(function(){
+			
+			var nextBtnObj = document.getElementById( "nextBtn" );
+			var backBtnObj = document.getElementById( "backBtn" );
+
+			var nextBtnHamManager = new Hammer( nextBtnObj );
+			var backBtnHamManager = new Hammer( backBtnObj );
+
+			nextBtnHamManager.on( "tap", function( e ){
+				e.preventDefault();
+				onNextBtn();
+			});
+
+			backBtnHamManager.on( "tap", function( e ){
+				e.preventDefault();
+				onBack();
+			});
+
+		})();
+
 
 
 		window.addEventListener( "load", useStringShot );
