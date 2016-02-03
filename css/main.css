@@ -812,47 +812,47 @@ h2{
         animation: rockAbout ease-in 2s infinite;
     }
 
-        @keyframes rockAbout{
-            
-            0%, 100% {
+    @keyframes rockAbout{
+        
+        0%, 100% {
             transform: rotate( -65deg );
             filter: invert( 0% );
-            }
-
-            50% {
-                transform: rotate( -20deg );
-                filter: invert( 100% );
-            }
         }
 
-.bubble 
-{
-    background: #ffffff;
-    border-radius: 10px;
-    padding: 0px;
-    position: fixed;
-    width: 100%;
-}
+        50% {
+            transform: rotate( -20deg );
+            filter: invert( 100% );
+        }
+    }
 
-.bubble:after 
-{
-    border-style: solid;
-    border-width: 39px 11px 0;
-    border-color: #ffffff transparent;
-    content: '';
-    display: block;
-    margin-left: -11px;
-    position: absolute;
-    bottom: -39px;
-    left: 52%;
-    z-index: 1;   
-}
+    .bubble 
+    {
+        background: #ffffff;
+        border-radius: 10px;
+        padding: 0px;
+        position: fixed;
+        width: 100%;
+    }
 
-p.metaInstr{
-    background-color: #ffffff;
-    color:  #000000;
-    font-family: 'pokemon_gbregular', sans-serif;
-}
+    .bubble:after 
+    {
+        border-style: solid;
+        border-width: 39px 11px 0;
+        border-color: #ffffff transparent;
+        content: '';
+        display: block;
+        margin-left: -11px;
+        position: absolute;
+        bottom: -39px;
+        left: 52%;
+        z-index: 1;   
+    }
+
+    p.metaInstr{
+        background-color: #ffffff;
+        color:  #000000;
+        font-family: 'pokemon_gbregular', sans-serif;
+    }
 
 }
 
