@@ -1,18 +1,18 @@
 <!doctype html>
 <html class="no-js" lang="">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="x-ua-compatible" content="ie=edge">
-<title></title>
-<meta name="description" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<!-- Place favicon.ico in the root directory -->
-<link rel="stylesheet" href="css/normalize.css">
-<link rel="stylesheet" href="css/main.css">
-
-<script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/PreventGhostClick.js" async></script>
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
 <!--[if lt IE 8]>
@@ -38,140 +38,140 @@
 
             <audio controls loop autoplay id="bgmPlayer" class="displayNone">
                 <source src="sounds/pokeOpening.ogg" type="audio/ogg" id="oggSrc">
-                <source src="sounds/pokeOpening.mp3" type="audio/mpeg" id="mp3Src">
-                Your browser does not support audio!
-            </audio>
-            <input type="button" id="bgmBtn" value="BGM" class="bgm-btn">
+                    <source src="sounds/pokeOpening.mp3" type="audio/mpeg" id="mp3Src">
+                        Your browser does not support audio!
+                    </audio>
+                    <input type="button" id="bgmBtn" value="BGM" class="bgm-btn">
 
-            <div id="endOfQuiz" class="hideMe end-quiz">
-                <div id="scores">
-                    <h2 id="showScore"></h2>
-                    <h3 id="newHighScore" class="new-high-score"></h3>
-                    <table id="elite4Table" class="elite4-table">
-                        <tr>
-                            <td class="elite4Name"></td>
-                            <td class="elite4Time"></td>
-                        </tr>
-                        <tr>
-                            <td class="elite4Name"></td>
-                            <td class="elite4Time"></td>
-                        </tr>   
-                        <tr>
-                            <td class="elite4Name"></td>
-                            <td class="elite4Time"></td>
-                        </tr>   
-                        <tr>
-                            <td class="elite4Name"></td>
-                            <td class="elite4Time"></td>
-                        </tr>   
-                        <tr>
-                            <td class="elite4Name"></td>
-                            <td class="elite4Time"></td>
-                        </tr>       
-                    </table>
-                </div>
+                    <div id="endOfQuiz" class="hideMe end-quiz">
+                        <div id="scores">
+                            <h2 id="showScore"></h2>
+                            <h3 id="newHighScore" class="new-high-score"></h3>
+                            <table id="elite4Table" class="elite4-table">
+                                <tr>
+                                    <td class="elite4Name"></td>
+                                    <td class="elite4Time"></td>
+                                </tr>
+                                <tr>
+                                    <td class="elite4Name"></td>
+                                    <td class="elite4Time"></td>
+                                </tr>   
+                                <tr>
+                                    <td class="elite4Name"></td>
+                                    <td class="elite4Time"></td>
+                                </tr>   
+                                <tr>
+                                    <td class="elite4Name"></td>
+                                    <td class="elite4Time"></td>
+                                </tr>   
+                                <tr>
+                                    <td class="elite4Name"></td>
+                                    <td class="elite4Time"></td>
+                                </tr>       
+                            </table>
+                        </div>
 
-                <div id="enterNameSect" class="enter-name-sect">
-                    <label for="enterNameHere">Please enter your name</label>
-                    <input type="text" id="enterNameHere" class="enter-name-here" maxlength="10">
-                    <input type="button" id="enterNameBtn" class="enter-name-btn" value="Enter">
+                        <div id="enterNameSect" class="enter-name-sect">
+                            <label for="enterNameHere">Please enter your name</label>
+                            <input type="text" id="enterNameHere" class="enter-name-here" maxlength="10">
+                            <input type="button" id="enterNameBtn" class="enter-name-btn" value="Enter">
+                        </div>
+                    </div>
+
+                    <div id="stats" class="hideMe status-update">
+                        <div id="timer" class="timer"></div> 
+                        <div id="hud" class="heads-up"></div> 
+                        <div id="dmgTaken" class="def-spd"></div>
+                        <div id="enemySpeed" class="def-spd"></div>    
+                    </div>
+                    
+
+                    <div id="startOfQuiz">
+                        <img src="img/startpage2.jpg" alt="Metapod in a vice" class="start-img">
+                        <img src="img/startpage3.jpg" alt="Metapod gunshow" class="start-img">
+                        <img src="img/startpage.jpg" alt="Metapod on a cliff" class="start-img">
+                        <div class="controlsL controls">
+                            <p>'W' / 'Drag Metapod Left' = Run up</p>
+                            <p>'S' / 'Drag Metapod Right' = Run down</p>
+                        </div>
+                        <div class="controlsR controls clearfix">
+                            <p>'D' / 'Press Down On Metapod' = Harden*</p>
+                            <p>'Space Bar' / 'Tap On Metapod' = Stringshot*</p>
+                        </div>
+                        <div class="tip">*Move limited by available PP</div>
+                        <div class="tip">Remaining PP gives you a faster Time score. Use it wisely!</div>
+                        <h3 id="startQuiz" class="start-msg">Are You Ready?</h3>
+                        <input type="button" id="startQuizBtn" class="start-quiz-btn poke-btn" value="Start!">
+                    </div>
+
+                    <div id="pikachu" class="my-pika displayNone"></div>
+                    <div id="harden" class="harden-shield displayNone"></div>
+                    <div id="stringshot" class="string-shot displayNone"></div>
+                    
+                    <div id="enemy1" class="enemy displayNone"></div>
+                    <div id="fireball" class="fire-ball displayNone"></div>
+                    
+                    <form action="" name="myForm">
+                        <table>
+                            <tr>
+                                <td>
+                                    <div id="questionHere" class="quiz-question"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div id="nothingChecked" class="displayNone">Check something!</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="radio" id="btnA" class="hideMe" name="optionBtn"  value=0>
+                                    <label for="btnA" class="read-text"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="radio" id="btnB" class="hideMe" name="optionBtn" value=1>
+                                    <label for="btnB" class="read-text"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="radio" id="btnC" class="hideMe" name="optionBtn" value=2>
+                                    <label for="btnC" class="read-text"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="radio" id="btnD" class="hideMe" name="optionBtn" value=3>
+                                    <label for="btnD" class="read-text"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="button" id="backBtn" class= "displayNone hideMe back-btn poke-btn" value="Back">
+                                    <input type="button" id="nextBtn" class="displayNone hideMe next-btn poke-btn" value="Next">
+                                    <input type="button" id="tryAgainBtn" class="try-again-btn displayNone poke-btn" value="Again?">
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
                 </div>
             </div>
-
-            <div id="stats" class="hideMe status-update">
-                <div id="timer" class="timer"></div> 
-                <div id="hud" class="heads-up"></div> 
-                <div id="dmgTaken" class="def-spd"></div>
-                <div id="enemySpeed" class="def-spd"></div>    
-            </div>
             
+            <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.6/hammer.min.js"></script>
+            <script src="js/plugins.js"></script>
+            <script src="js/main.js"></script>
 
-            <div id="startOfQuiz">
-                <img src="img/startpage2.jpg" alt="Metapod in a vice" class="start-img">
-                <img src="img/startpage3.jpg" alt="Metapod gunshow" class="start-img">
-                <img src="img/startpage.jpg" alt="Metapod on a cliff" class="start-img">
-                <div class="controlsL controls">
-                    <p>'W' / 'Drag Metapod Left' = Run up</p>
-                    <p>'S' / 'Drag Metapod Right' = Run down</p>
-                </div>
-                <div class="controlsR controls clearfix">
-                    <p>'D' / 'Press Down On Metapod' = Harden*</p>
-                    <p>'Space Bar' / 'Tap On Metapod' = Stringshot*</p>
-                </div>
-                <div class="tip">*Move limited by available PP</div>
-                <div class="tip">Remaining PP gives you a faster Time score. Use it wisely!</div>
-                <h3 id="startQuiz" class="start-msg">Are You Ready?</h3>
-                <input type="button" id="startQuizBtn" class="start-quiz-btn poke-btn" value="Start!">
-            </div>
-
-            <div id="pikachu" class="my-pika displayNone"></div>
-            <div id="harden" class="harden-shield displayNone"></div>
-            <div id="stringshot" class="string-shot displayNone"></div>
-            
-            <div id="enemy1" class="enemy displayNone"></div>
-            <div id="fireball" class="fire-ball displayNone"></div>
-            
-            <form action="" name="myForm">
-                <table>
-                    <tr>
-                        <td>
-                            <div id="questionHere" class="quiz-question"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div id="nothingChecked" class="displayNone">Check something!</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="radio" id="btnA" class="hideMe" name="optionBtn"  value=0>
-                            <label for="btnA" class="read-text"></label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="radio" id="btnB" class="hideMe" name="optionBtn" value=1>
-                            <label for="btnB" class="read-text"></label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="radio" id="btnC" class="hideMe" name="optionBtn" value=2>
-                            <label for="btnC" class="read-text"></label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="radio" id="btnD" class="hideMe" name="optionBtn" value=3>
-                            <label for="btnD" class="read-text"></label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="button" id="backBtn" class= "displayNone hideMe back-btn poke-btn" value="Back">
-                            <input type="button" id="nextBtn" class="displayNone hideMe next-btn poke-btn" value="Next">
-                            <input type="button" id="tryAgainBtn" class="try-again-btn displayNone poke-btn" value="Again?">
-                        </td>
-                    </tr>
-                </table>
-            </form>
-        </div>
-    </div>
-    
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.6/hammer.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-        e.src='https://www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-        ga('create','UA-XXXXX-X','auto');ga('send','pageview');
-    </script>
-</body>
-</html>
+            <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+            <script>
+                (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+                    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+                e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+                e.src='https://www.google-analytics.com/analytics.js';
+                r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+                ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+            </script>
+        </body>
+        </html>

@@ -806,24 +806,24 @@
 
 			pikaHamManager.on( "press", function( e ){
 				if( gameOver === false && powerPoints === 0 ){
-							
-							useStruggle();
-						}
 
-						else if( gameOver === false && powerPoints	> 0 ){
+					useStruggle();
+				}
 
-							var pikaYPos = getYPosition( "pikachu" );
+				else if( gameOver === false && powerPoints	> 0 ){
 
-							$( "#harden" ).removeClass( "displayNone" );
-							setPosition( "harden", pikaYPos, "0" );
+					var pikaYPos = getYPosition( "pikachu" );
 
-							powerPoints	= powerPoints	- 1;
-							damageDealtByEnemy = Math.floor( damageDealtByEnemy	/ 2 );
-							$( "#hud" ).html( "Metapod used Harden! Enemy Dmg reduced.<br> PP: " + powerPoints + "/10" );
-							$( "#dmgTaken" ).html( "Enemy Dmg: " + damageDealtByEnemy );
+					$( "#harden" ).removeClass( "displayNone" );
+					setPosition( "harden", pikaYPos, "0" );
 
-							setTimeout( function(){ $( "#harden" ).addClass( "displayNone" ); }, 500 );
-						}
+					powerPoints	= powerPoints	- 1;
+					damageDealtByEnemy = Math.floor( damageDealtByEnemy	/ 2 );
+					$( "#hud" ).html( "Metapod used Harden! Enemy Dmg reduced.<br> PP: " + powerPoints + "/10" );
+					$( "#dmgTaken" ).html( "Enemy Dmg: " + damageDealtByEnemy );
+
+					setTimeout( function(){ $( "#harden" ).addClass( "displayNone" ); }, 500 );
+				}
 			});
 
 		})();
@@ -837,12 +837,10 @@
 			var backBtnHamManager = new Hammer( backBtnObj );
 
 			nextBtnHamManager.on( "tap", function( e ){
-				e.gesture.srcEvent.preventDefault();
 				onNextBtn();
 			});
 
 			backBtnHamManager.on( "tap", function( e ){
-				e.gesture.srcEvent.preventDefault();
 				onBack();
 			});
 
