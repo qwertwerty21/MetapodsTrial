@@ -854,7 +854,5 @@
 		document.getElementById( "startQuizBtn" ).addEventListener( "click", showBtns );
 		document.getElementById( "bgmBtn" ).addEventListener( "click", onBgmBtn );
 		document.getElementById( "enterNameBtn" ).addEventListener( "click", onEnterNameBtn );
-		document.myForm.nextBtn.addEventListener( "click", onNextBtn );
-		document.myForm.backBtn.addEventListener( "click", onBack );
 		document.myForm.tryAgainBtn.addEventListener( "click", onTryAgain );
 		
