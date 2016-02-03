@@ -803,10 +803,13 @@ h2{
     }
 
     .landscape-warning img{
-        animation: rockAbout ease-in 2s infinite;
         display: inline-block;
         margin-top: 10%;
         width: 50%;
+        -ms-transform: rotate( 270deg ); 
+        -webkit-transform: rotate( 270deg ); 
+        transform: rotate( 270deg );
+        animation: rockAbout ease-in 2s infinite;
     }
 
         @keyframes rockAbout{
