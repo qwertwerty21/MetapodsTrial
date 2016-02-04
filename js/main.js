@@ -846,6 +846,33 @@
 
 		})();
 
+		(function(){
+
+			var btnAObj = document.getElementById( "btnA" );
+			var btnBObj = document.getElementById( "btnB" );
+			var btnCObj = document.getElementById( "btnC" );
+			var btnDObj = document.getElementById( "btnD" );
+
+			var btnAObjHamManager = new Hammer( btnAObj );
+			var btnBObjHamManager = new Hammer( btnBObj );
+			var btnCObjHamManager = new Hammer( btnCObj );
+			var btnDObjHamManager = new Hammer( btnDObj );
+
+			btnAObjHamManager.on( "tap", function( e ){
+				btnAObj.checked = true;
+			});
+			btnBObjHamManager.on( "tap", function( e ){
+				btnBObj.checked = true;
+			});
+			btnCObjHamManager.on( "tap", function( e ){
+				btnCObj.checked = true;
+			});
+			btnDObjHamManager.on( "tap", function( e ){
+				btnDObj.checked = true;
+			});			
+
+		})();
+
 
 
 		window.addEventListener( "load", useStringShot );
@@ -855,4 +882,4 @@
 		document.getElementById( "bgmBtn" ).addEventListener( "click", onBgmBtn );
 		document.getElementById( "enterNameBtn" ).addEventListener( "click", onEnterNameBtn );
 		document.myForm.tryAgainBtn.addEventListener( "click", onTryAgain );
-		
+
