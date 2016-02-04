@@ -565,7 +565,7 @@
 								stringshotFired = true;
 
 								powerPoints = powerPoints - 1;
-								$( "#hud" ).html( "Metapod used Stringshot! Enemy Spd reduced.<br> PP: " + powerPoints + "/10" );
+								$( "#hud" ).html( "Metapod used Stringshot! Enemy Spd reduced on hit.<br> PP: " + powerPoints + "/10" );
 							}
 						}
 					}
@@ -799,7 +799,7 @@
 						stringshotFired = true;
 
 						powerPoints = powerPoints - 1;
-						$( "#hud" ).html( "Metapod used Stringshot! Enemy Spd reduced.<br> PP: " + powerPoints + "/10" );
+						$( "#hud" ).html( "Metapod used Stringshot! Enemy Spd reduced on hit.<br> PP: " + powerPoints + "/10" );
 					}
 				}
 			});

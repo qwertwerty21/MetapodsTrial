@@ -731,23 +731,34 @@ h2{
             right: 0;
         }
 
+        .timer{
+            font-size: .9em;
+            margin-top: -30%;
+        }
+
+        .heads-up{
+            font-size: .7em;
+        }
+
         .quiz-question{
-            font-size: .6em;   
+            font-size: .8em;
+            margin-bottom: 1em;   
         }
 
         .read-text{
-            font-size: .7em;
+            font-size: 1.1em;
+            padding: 1.15em;
         }
 
         .next-btn{
             position: fixed;
-            bottom: 40%;
+            bottom: 0;
             right: 0;
         }
 
         .back-btn{
             position: fixed;
-            bottom: 20%;
+            bottom: 5.5em;
             right: 0;
         }
 
