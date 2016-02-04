@@ -26,7 +26,7 @@
 			},
 			{
 				question: "Where is the bakery?",
-				choices: ["I live in Jinju.", "Good. Let's go!", "I live on a boat.", "It's next to the park."],
+				choices: ["I live in Jinju.", "Good. Let's go!", "I live on a boat.", "Go straight."],
 				correctAnswer: 3
 			},
 			{
@@ -45,8 +45,8 @@
 				correctAnswer: 0
 			},
 			{
-				question: "Which is your favorite color?",
-				choices: ["I like rain.", "I will play in the snow.", "My favorite color is red.", "My favorite color is July."],
+				question: "How's the weather?",
+				choices: ["I like food.", "I don't like snow.", "It's snowing.", "Today is Monday."],
 				correctAnswer: 2
 			},
 			{
@@ -60,8 +60,8 @@
 				correctAnswer: 1
 			},
 			{
-				question: "Do you know about YutNori?",
-				choices: ["He's a Korean singer.", "I like reading science books.", "It's a Korean snack.", "It's a Korean game."],
+				question: "Do you have a pen?",
+				choices: ["He can dance.", "I like reading.", "No, I do.", "Yes, I do."],
 				correctAnswer: 3
 			},
 			{
@@ -70,8 +70,8 @@
 				correctAnswer: 3
 			},
 			{
-				question: "What do you want to be?",
-				choices: ["I want to be a doctor.", "I can't sing.", "I can't wait!", "I am from America."],
+				question: "Do you like school?",
+				choices: ["No, I don't.", "I can't skate.", "Let's go!", "I am from America."],
 				correctAnswer: 0
 			}
 			];

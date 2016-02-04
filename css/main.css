@@ -694,8 +694,8 @@ h2{
         }
 
         .try-again-btn{
-            bottom: 50%;
-            right: 20%;
+            bottom: 0;
+            right: 50px;
         }
     }
 
