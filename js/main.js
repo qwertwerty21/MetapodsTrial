@@ -1,7 +1,7 @@
 			var allQuestions = [
 			{
-				question: "Why are you so sad?",
-				choices: ["Because I got a new bike.", "I will join the English club.", "Because Minjae broke my robot.", "Go straight and turn right."],
+				question: "What's the matter?",
+				choices: ["He is tall.", "Drink warm water", "I hurt my arm.", "Get some rest."],
 				correctAnswer: 2
 			},
 			{
