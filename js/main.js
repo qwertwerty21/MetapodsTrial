@@ -22,7 +22,7 @@
 			{
 				question: "What time is it?",
 				choices: ["I'm hungry.", "I'm 12 years old.", "It's time for lunch!", "I can't swim."],
-				correctAnswer: 1
+				correctAnswer: 2
 			},
 			{
 				question: "Where is the bakery?",
@@ -52,7 +52,7 @@
 			{
 				question: "How are you?",
 				choices: ["I'm happy.", "I'm big.", "I'm Hayun.", "He is sad."],
-				correctAnswer: 2
+				correctAnswer: 0
 			},
 			{
 				question: "Wow! You are ______ skiing!",
