@@ -853,10 +853,20 @@
 			var btnCObj = document.getElementById( "btnC" );
 			var btnDObj = document.getElementById( "btnD" );
 
+			var btnALabelObj = document.getElementById( "btnALabel" );
+			var btnBLabelObj = document.getElementById( "btnBLabel" );
+			var btnCLabelObj = document.getElementById( "btnCLabel" );
+			var btnDLabelObj = document.getElementById( "btnDLabel" );
+
 			var btnAObjHamManager = new Hammer( btnAObj );
 			var btnBObjHamManager = new Hammer( btnBObj );
 			var btnCObjHamManager = new Hammer( btnCObj );
 			var btnDObjHamManager = new Hammer( btnDObj );
+
+			var btnALabObjHamMan = new Hammer( btnALabelObj );
+			var btnBLabObjHamMan = new Hammer( btnBLabelObj );
+			var btnCLabObjHamMan = new Hammer( btnCLabelObj );
+			var btnDLabObjHamMan = new Hammer( btnDLabelObj );
 
 			btnAObjHamManager.on( "tap", function( e ){
 				btnAObj.checked = true;
@@ -869,11 +879,22 @@
 			});
 			btnDObjHamManager.on( "tap", function( e ){
 				btnDObj.checked = true;
-			});			
+			});		
+
+			btnALabObjHamMan.on( "tap", function( e ){
+				btnAObj.checked = true;
+			});
+			btnBLabObjHamMan.on( "tap", function( e ){
+				btnBObj.checked = true;
+			});
+			btnCLabObjHamMan.on( "tap", function( e ){
+				btnCObj.checked = true;
+			});
+			btnDLabObjHamMan.on( "tap", function( e ){
+				btnDObj.checked = true;
+			});				
 
 		})();
-
-
 
 		window.addEventListener( "load", useStringShot );
 		window.addEventListener( "load", useHarden );
