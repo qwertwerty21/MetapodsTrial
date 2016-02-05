@@ -76,6 +76,24 @@
 			}
 			];
 
+			var metaQuotes = [ 
+			
+			"I don't like dying, broh.",
+			"Last name: Ever. First name: Greatest. Middle name: Metapod.", 
+			"Shoot for the moon. For even if you miss, you'll be among the stars~",
+			"I've got a squishy interior, dude...",
+			"I know when that hotline bling~",
+			"Do you even lift, brah?",
+			"Got 'em, brah!",
+			"YOLO!",
+			"Ripper, man!",
+			"Gnarly, dude!",
+			"Sweet, man!",
+			"Totes, brah.",
+			"...Do you wanna build a snowman?"
+
+			];
+
 			var questionCount;
 			var correctAnsCount;
 			var curQuestion = allQuestions[questionCount];
@@ -101,6 +119,15 @@
 				{"name":"Lorelei","corAnsw":20,"mstime":99999}
 				];
 			}
+
+			$( document ).ready( function(){
+				setInterval( function(){
+					if( gameOver != false ){
+						var newMetaQuote = getRandomNumber( metaQuotes.length );
+						document.getElementById( "metaStartQuote" ).innerHTML = metaQuotes[ newMetaQuote ];  
+					};
+				}, 5000 );
+			});
 			
 			//show radio buttons, questions, answers, timer, next button, hide start button, call load next question
 			var showBtns = function(){
@@ -763,7 +790,7 @@
 
 		//mobile touch events
 
-		(function(){
+		$( document ).ready( function(){
 			
 			var myPika = document.getElementById( "pikachu" );
 
@@ -826,81 +853,81 @@
 				}
 			});
 
-		})();
+		});
 
-		(function(){
-			
-			var nextBtnObj = document.getElementById( "nextBtn" );
-			var backBtnObj = document.getElementById( "backBtn" );
+			$( document ).ready( function(){
 
-			var nextBtnHamManager = new Hammer( nextBtnObj );
-			var backBtnHamManager = new Hammer( backBtnObj );
+				var nextBtnObj = document.getElementById( "nextBtn" );
+				var backBtnObj = document.getElementById( "backBtn" );
 
-			nextBtnHamManager.on( "tap", function( e ){
-				onNextBtn();
+				var nextBtnHamManager = new Hammer( nextBtnObj );
+				var backBtnHamManager = new Hammer( backBtnObj );
+
+				nextBtnHamManager.on( "tap", function( e ){
+					onNextBtn();
+				});
+
+				backBtnHamManager.on( "tap", function( e ){
+					onBack();
+				});
+
 			});
 
-			backBtnHamManager.on( "tap", function( e ){
-				onBack();
+			$( document ).ready( function(){
+
+				var btnAObj = document.getElementById( "btnA" );
+				var btnBObj = document.getElementById( "btnB" );
+				var btnCObj = document.getElementById( "btnC" );
+				var btnDObj = document.getElementById( "btnD" );
+
+				var btnALabelObj = document.getElementById( "btnALabel" );
+				var btnBLabelObj = document.getElementById( "btnBLabel" );
+				var btnCLabelObj = document.getElementById( "btnCLabel" );
+				var btnDLabelObj = document.getElementById( "btnDLabel" );
+
+				var btnAObjHamManager = new Hammer( btnAObj );
+				var btnBObjHamManager = new Hammer( btnBObj );
+				var btnCObjHamManager = new Hammer( btnCObj );
+				var btnDObjHamManager = new Hammer( btnDObj );
+
+				var btnALabObjHamMan = new Hammer( btnALabelObj );
+				var btnBLabObjHamMan = new Hammer( btnBLabelObj );
+				var btnCLabObjHamMan = new Hammer( btnCLabelObj );
+				var btnDLabObjHamMan = new Hammer( btnDLabelObj );
+
+				btnAObjHamManager.on( "tap", function( e ){
+					btnAObj.checked = true;
+				});
+				btnBObjHamManager.on( "tap", function( e ){
+					btnBObj.checked = true;
+				});
+				btnCObjHamManager.on( "tap", function( e ){
+					btnCObj.checked = true;
+				});
+				btnDObjHamManager.on( "tap", function( e ){
+					btnDObj.checked = true;
+				});		
+
+				btnALabObjHamMan.on( "tap", function( e ){
+					btnAObj.checked = true;
+				});
+				btnBLabObjHamMan.on( "tap", function( e ){
+					btnBObj.checked = true;
+				});
+				btnCLabObjHamMan.on( "tap", function( e ){
+					btnCObj.checked = true;
+				});
+				btnDLabObjHamMan.on( "tap", function( e ){
+					btnDObj.checked = true;
+				});				
+
 			});
 
-		})();
-
-		(function(){
-
-			var btnAObj = document.getElementById( "btnA" );
-			var btnBObj = document.getElementById( "btnB" );
-			var btnCObj = document.getElementById( "btnC" );
-			var btnDObj = document.getElementById( "btnD" );
-
-			var btnALabelObj = document.getElementById( "btnALabel" );
-			var btnBLabelObj = document.getElementById( "btnBLabel" );
-			var btnCLabelObj = document.getElementById( "btnCLabel" );
-			var btnDLabelObj = document.getElementById( "btnDLabel" );
-
-			var btnAObjHamManager = new Hammer( btnAObj );
-			var btnBObjHamManager = new Hammer( btnBObj );
-			var btnCObjHamManager = new Hammer( btnCObj );
-			var btnDObjHamManager = new Hammer( btnDObj );
-
-			var btnALabObjHamMan = new Hammer( btnALabelObj );
-			var btnBLabObjHamMan = new Hammer( btnBLabelObj );
-			var btnCLabObjHamMan = new Hammer( btnCLabelObj );
-			var btnDLabObjHamMan = new Hammer( btnDLabelObj );
-
-			btnAObjHamManager.on( "tap", function( e ){
-				btnAObj.checked = true;
-			});
-			btnBObjHamManager.on( "tap", function( e ){
-				btnBObj.checked = true;
-			});
-			btnCObjHamManager.on( "tap", function( e ){
-				btnCObj.checked = true;
-			});
-			btnDObjHamManager.on( "tap", function( e ){
-				btnDObj.checked = true;
-			});		
-
-			btnALabObjHamMan.on( "tap", function( e ){
-				btnAObj.checked = true;
-			});
-			btnBLabObjHamMan.on( "tap", function( e ){
-				btnBObj.checked = true;
-			});
-			btnCLabObjHamMan.on( "tap", function( e ){
-				btnCObj.checked = true;
-			});
-			btnDLabObjHamMan.on( "tap", function( e ){
-				btnDObj.checked = true;
-			});				
-
-		})();
-
-		window.addEventListener( "load", useStringShot );
-		window.addEventListener( "load", useHarden );
-		window.addEventListener( "load", pikaControls );
-		document.getElementById( "startQuizBtn" ).addEventListener( "click", showBtns );
-		document.getElementById( "bgmBtn" ).addEventListener( "click", onBgmBtn );
-		document.getElementById( "enterNameBtn" ).addEventListener( "click", onEnterNameBtn );
-		document.myForm.tryAgainBtn.addEventListener( "click", onTryAgain );
+			window.addEventListener( "load", useStringShot );
+			window.addEventListener( "load", useHarden );
+			window.addEventListener( "load", pikaControls );
+			document.getElementById( "startQuizBtn" ).addEventListener( "click", showBtns );
+			document.getElementById( "bgmBtn" ).addEventListener( "click", onBgmBtn );
+			document.getElementById( "enterNameBtn" ).addEventListener( "click", onEnterNameBtn );
+			document.myForm.tryAgainBtn.addEventListener( "click", onTryAgain );
 

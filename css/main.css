@@ -204,45 +204,86 @@
         text-shadow: none;
     }
 
+    .meta-move{
+        position: relative;
+        top: -7em;
+    }
+
+    .start-meta-bubble 
+    {
+        background: #ffffff;
+        border-radius: 10px;
+        position: relative;
+        padding: 1%;
+        width: 100%;
+    }
+
+        .start-meta-bubble:after 
+        {
+            border-style: solid;
+            border-width: 39px 11px 0;
+            border-color: #ffffff transparent;
+            content: '';
+            display: block;
+            margin-left: -11px;
+            position: absolute;
+            bottom: -39px;
+            left: 52%;
+            z-index: 1;   
+        }
+
+    .meta-start-quote{
+        background-color: #ffffff;
+        color:  #000000;
+        font-family: 'pokemon_gbregular', sans-serif;
+        text-align: center;
+    }
+
     .start-img{
-        border: 4px solid #b4e652;
+        border: 2px solid #b4e652;
         border-radius: 5%;
-        display: inline-block;
-        float: left;
-        height: 10em;
-        width: 31%;
-        margin-left: 1px;
-        margin-right: 1px;
-        margin-bottom: 5%;
-        opacity: .9;
+        display: block;
+        margin: 0 auto;
+        position: relative;
+        top: 4em;
+        width: 90%;  
     }
 
     .controls{
-        background-color: #8B0000;
-        color: #FFD238;
-        font-family: 'pokemon_gbregular', sans-serif;
-        font-size: .6em;
-        padding-left: 1%;
+        background-color: #b4e652;
+        color: #000000;
+        display: block;
+        font-family: 'pokemon_solidnormal', serif;
+        font-size: .7em;
+        letter-spacing: 2px;
     }
 
-    .controlsL{
-        display: inline-block;
-        float: left;
-        text-align: left;
-        width: 48%;
-    }
+        .controlsL{
+            display: block;
+            margin: 0 auto;
+            padding: 1% 0;
+            text-align: center;
+            width: 90%;
+        }
 
-    .controlsR{
-        display: inline-block;
-        float: right;
-        text-align: left;
-        width: 48%;
-    }
+        .controlsR{
+            display: block;
+            margin: 0 auto;
+            padding: 1% 0;
+            text-align: center;
+            width: 90%;
+        }
+
+            .ctrl-action{
+                color: #ff0000;
+                font-size: 1.5em;
+            }
 
     .tip{
-        color: #ffffff;
-        font-family: "Lucida Console", Monaco, monospace;
+        color: #ff0000;
+        font-family: 'pokemon_solidnormal', serif;
         font-size: .7em;
+        letter-spacing: 2px;
         text-align: center;
     }
 
@@ -637,7 +678,7 @@ h2{
        ========================================================================== */
 
 
-       @media only screen and (max-width: 1300px) {
+    @media only screen and (max-width: 1300px) {
         /* Style adjustments for viewports that meet the condition */
 
         h1{
@@ -649,43 +690,6 @@ h2{
             font-size: 1.5em;
             margin-bottom: -1em;
             transition: all ease 2s;
-        }
-
-        .start-img{
-            display: none;
-        }
-
-        img:nth-child(2){
-            display: block;
-            margin: 0 auto;
-            transition: all ease 2s;
-            width: 100%;    
-        }
-
-        .controls{
-            border-radius: 5%;
-            clear: both;
-            display: block;
-            font-size: .7em;
-            transition: all ease 2s;
-        }
-
-        .controlsL{
-            display: block;
-            float: none;
-            margin: 0 auto;
-            padding: 1%;
-            text-align: center;
-            width: 90%;
-        }
-
-        .controlsR{
-            display: block;
-            float: none;
-            margin: 0 auto;
-            padding: 1%;
-            text-align: center;
-            width: 98%;
         }
 
         .elite4-table td{
@@ -725,10 +729,17 @@ h2{
             width: 100%;
         }
 
+        .meta-move{
+            top: 1em;
+            margin-bottom: 6em;
+            transition: all ease 2s;
+        }
+
         .bgm-btn{
             position: fixed;
             top: 0;
             right: 0;
+            transition: all ease 2s;
         }
 
         .timer{

@@ -87,19 +87,24 @@
                     
 
                     <div id="startOfQuiz">
-                        <img src="img/startpage2.jpg" alt="Metapod in a vice" class="start-img">
-                        <img src="img/startpage3.jpg" alt="Metapod gunshow" class="start-img">
-                        <img src="img/startpage.jpg" alt="Metapod on a cliff" class="start-img">
+                        
+                        <div class="meta-move">
+                            <div class="start-meta-bubble">
+                                <p id= "metaStartQuote" class="meta-start-quote">I don't like dying, broh.</p>    
+                            </div>
+                            <img src="img/startpage3.jpg" alt="Metapod Bringin You to the Gunshow" class="start-img">      
+                        </div>
+                        
+                        
                         <div class="controlsL controls">
-                            <p>'W' / 'Drag Metapod Left' = Run up</p>
-                            <p>'S' / 'Drag Metapod Right' = Run down</p>
+                            <p>'W' / 'Drag Metapod Left' = <br><span class="ctrl-action">Run up</span></p>
+                            <p>'S' / 'Drag Metapod Right' = <br><span class="ctrl-action">Run down</span></p>
                         </div>
                         <div class="controlsR controls clearfix">
-                            <p>'D' / 'Press Down On Metapod' = Harden*</p>
-                            <p>'Space Bar' / 'Tap On Metapod' = Stringshot*</p>
+                            <p>'D' / 'Press Down On Metapod' = <br><span class="ctrl-action">Harden*</span></p>
+                            <p>'Space Bar' / 'Tap On Metapod' = <br><span class="ctrl-action">Stringshot*</span></p>
                         </div>
                         <div class="tip">*Move limited by available PP</div>
-                        <div class="tip">Remaining PP gives you a faster Time score. Use it wisely!</div>
                         <h3 id="startQuiz" class="start-msg">Are You Ready?</h3>
                         <input type="button" id="startQuizBtn" class="start-quiz-btn poke-btn" value="Start!">
                     </div>
