@@ -119,7 +119,7 @@
                         <input type="button" id="startQuizBtn" class="start-quiz-btn poke-btn" value="Start!">
                     </div>
 
-                    <div id="pikachu" class="my-pika displayNone"></div>
+                    <div id="pikachu" class="my-pika displayNone" style="-ms-touch-action: none; touch-action: none;"></div>
                     <div id="harden" class="harden-shield displayNone"></div>
                     <div id="stringshot" class="string-shot displayNone"></div>
                     
@@ -140,32 +140,32 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="radio" id="btnA" class="hideMe" name="optionBtn"  value=0>
-                                    <label for="btnA" id="btnALabel" class="read-text"></label>
+                                    <input type="radio" id="btnA" class="hideMe" name="optionBtn"  value=0 style="-ms-touch-action: none; touch-action: none;">
+                                    <label for="btnA" id="btnALabel" class="read-text" style="-ms-touch-action: none; touch-action: none;"></label>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="radio" id="btnB" class="hideMe" name="optionBtn" value=1>
-                                    <label for="btnB" id="btnBLabel" class="read-text"></label>
+                                    <input type="radio" id="btnB" class="hideMe" name="optionBtn" value=1 style="-ms-touch-action: none; touch-action: none;">
+                                    <label for="btnB" id="btnBLabel" class="read-text" style="-ms-touch-action: none; touch-action: none;"></label>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="radio" id="btnC" class="hideMe" name="optionBtn" value=2>
-                                    <label for="btnC" id="btnCLabel" class="read-text"></label>
+                                    <input type="radio" id="btnC" class="hideMe" name="optionBtn" value=2 style="-ms-touch-action: none; touch-action: none;">
+                                    <label for="btnC" id="btnCLabel" class="read-text" style="-ms-touch-action: none; touch-action: none;"></label>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="radio" id="btnD" class="hideMe" name="optionBtn" value=3>
-                                    <label for="btnD" id="btnDLabel" class="read-text"></label>
+                                    <input type="radio" id="btnD" class="hideMe" name="optionBtn" value=3 style="-ms-touch-action: none; touch-action: none;">
+                                    <label for="btnD" id="btnDLabel" class="read-text" style="-ms-touch-action: none; touch-action: none;"></label>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="button" id="backBtn" class= "displayNone hideMe back-btn poke-btn" value="Back">
-                                    <input type="button" id="nextBtn" class="displayNone hideMe next-btn poke-btn" value="Next">
+                                    <input type="button" id="backBtn" class= "displayNone hideMe back-btn poke-btn" value="Back" style="-ms-touch-action: none; touch-action: none;">
+                                    <input type="button" id="nextBtn" class="displayNone hideMe next-btn poke-btn" value="Next" style="-ms-touch-action: none; touch-action: none;">
                                     <input type="button" id="tryAgainBtn" class="try-again-btn displayNone poke-btn" value="Again?">
                                 </td>
                             </tr>
@@ -176,6 +176,7 @@
             
             <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.6/hammer.min.js"></script>
+            <script src="js/vendor/hammer-time.js"></script>
             <script src="js/plugins.js"></script>
             <script src="js/main.js"></script>
 
