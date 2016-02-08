@@ -206,7 +206,7 @@
 
     .meta-move{
         position: relative;
-        top: -7em;
+        top: -5em;
     }
 
     .start-meta-bubble 
@@ -414,32 +414,50 @@
     to { background-position: 256px; }
 }
 
+.justRevived{
+    opacity: .5;
+}
 
 /*Status HuD*/
 
 .status-update{
     color: #f0f0f0;
+}
+
+.meta-death{
+    display: block; 
+    font-family: 'pokemon_gbregular', sans-serif;
+    font-size: 1.1em;
     text-align: center;
 }
 
-.timer{
-    display: block; 
-    font-size: 1.5em;
+.meta-stats{
+    color: #b4e652;
+    display: block;
+    font-family: 'pokemon_gbregular', sans-serif;
+    font-size: .7em;
+    float: left;
+    width: 45%;
 }
 
 .heads-up{
     color: #b4e652;
     display: block;
     font-family: 'pokemon_gbregular', sans-serif;
-    font-size: .6em; 
+    font-size: .7em; 
+    text-align: center;
+}
+
+.enemy-stats{
+    display: block;
+    float: right;
+    width: 40%;
 }
 
 .def-spd{
     color: #ff0000;
-    display: inline-block;
     font-family: 'pokemon_gbregular', sans-serif;
-    font-size: .6em;
-    width: 49%;
+    font-size: .7em;
 }
 
 /*QUIZ QUESTIONS*/
@@ -718,7 +736,7 @@ h2{
         }
     }
 
-    @media only screen and (max-width: 700px) {
+    @media only screen and (max-width: 680px) {
 
         body{
             background-color: #031927;
@@ -742,18 +760,27 @@ h2{
             transition: all ease 2s;
         }
 
-        .timer{
-            font-size: .9em;
+        .meta-death{
+            font-size: .7em;
             margin-top: -30%;
         }
 
         .heads-up{
-            font-size: .7em;
+            font-size: .6em;
+        }
+
+        .meta-stats{
+            font-size: .5em;
+        }
+
+        .enemy-stats{
+            font-size: .5em;
         }
 
         .quiz-question{
             font-size: .8em;
-            margin-bottom: 1em;   
+            margin-bottom: 0;
+            margin-top: -28%;   
         }
 
         .read-text{
@@ -796,11 +823,15 @@ h2{
           height: 3.5em;
           width: 3.5em;
           z-index: 2;
-      }
+        }
 
-      .string-shot{
+        .string-shot{
           border-width: 6px 80px 8px 0;     
-      }
+        }
+
+        .elite4-table td{
+            padding-bottom: 5%;
+        }
   }
 
   /*Screen Orientation Media Queries*/

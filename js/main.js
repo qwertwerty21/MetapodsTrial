@@ -82,7 +82,7 @@
 			"Last name: Ever. First name: Greatest. Middle name: Metapod.", 
 			"Shoot for the moon. For even if you miss, you'll be among the stars~",
 			"I've got a squishy interior, dude...",
-			"I know when that hotline bling~",
+			"...Call me maybe?",
 			"Do you even lift, brah?",
 			"Got 'em, brah!",
 			"YOLO!",
@@ -99,27 +99,30 @@
 			var curQuestion = allQuestions[questionCount];
 			var userAnsArray = [];
 			var actualAnsArray = [];
-			var ms = 0;
-			var startTime;
+			var metaHealth;
 			var bgmPaused = false;
 			var gameLoopSpd;
 			var damageDealtByEnemy;
 			var stringshotFired;
 			var enemyMoveSpd;
 			var powerPoints;
+			var currentlyDead;
+			var metaDeathCount;
+			var invincible;
 			var lastRun = 0;
 			var gameOver;
 			if( localStorage ){
 				
 				var arrayOfPrevBestScores = JSON.parse( localStorage.getItem( "arrayOfBestScores" )) || [
-				{"name":"Sunny","corAnsw":20,"mstime":55555},
-				{"name":"Lance","corAnsw":20,"mstime":66666},
-				{"name":"Agatha","corAnsw":20,"mstime":77777},
-				{"name":"Bruno","corAnsw":20,"mstime":88888},
-				{"name":"Lorelei","corAnsw":20,"mstime":99999}
+				{"name":"Sunny","corAnsw":15,"deaths":1},
+				{"name":"Lance","corAnsw":15,"deaths":5},
+				{"name":"Agatha","corAnsw":15,"deaths":10},
+				{"name":"Bruno","corAnsw":15,"deaths":15},
+				{"name":"Lorelei","corAnsw":15,"deaths":20}
 				];
 			}
 
+			//change start screen metapod quotes randomly every 5 secs
 			$( document ).ready( function(){
 				setInterval( function(){
 					if( gameOver != false ){
@@ -189,15 +192,29 @@
 				userAnsArray = [];
 
 				gameLoopSpd = 100;
+				
+				metaDeathCount = 0;
+				currentlyDead = false;
+				metaHealth = 100;
 				powerPoints	= 10;
-				$( "#hud" ).html( "PP: " + powerPoints + "/10" );
-				damageDealtByEnemy = 9999;
-				$( "#dmgTaken" ).html( "Enemy Dmg: " + damageDealtByEnemy );
+				invincible = false;
+
+				damageDealtByEnemy = 105;
 				enemyMoveSpd = 40;
+
+				$( "#hud" ).html( "" );
+
+				$( "#metaDeathCounter" ).html( "Metapod Death Count: " + metaDeathCount );
+				$( "#metaHP" ).html( "Metapod HP: " + metaHealth );
+				$( "#metaPP" ).html( "Metapod PP: " + powerPoints );
+				
+				$( "#dmgTaken" ).html( "Enemy Dmg: " + damageDealtByEnemy );
 				$( "#enemySpeed" ).html( "Enemy Spd: " + enemyMoveSpd );
 
-				ms = 0;
-				startTime = window.setInterval( tickTock, 10 );
+				if( $( "#pikachu" ).hasClass( "justRevived" ) ){
+					$( "#pikachu" ).removeClass( "justRevived" );
+				}
+
 			};
 
 			var showTds = function(){
@@ -337,21 +354,20 @@
 			//hide questions, answers, next, back buttons, and timer. show end of quiz screen and final score. show enter name section and try again.
 			var showFinalScore = function(){
 
-				var bonusPoints = powerPoints * 2000;
+				var bonusPoints = Math.floor( powerPoints / 2 );
 
 				
 
 				gameOver = true;
-				ms = ms - bonusPoints;
+				metaDeathCount = metaDeathCount - bonusPoints;
 
 				hideTds();
 				updateAudioSrc( "sounds/pokeEnding.ogg", "sounds/pokeEnding.mp3");
 
 				$( "#endOfQuiz" ).removeClass( "hideMe" );
 				
-				document.getElementById( "showScore" ).innerHTML = "Correct Answers: " + correctAnsCount + " out of " + questionCount + " questions</br>" + "Bonus from remaining PP: " + bonusPoints + "<br>Final Time: " + ms + "s";
+				document.getElementById( "showScore" ).innerHTML = "Correct Answers: " + correctAnsCount + " out of " + questionCount + " questions</br>" + "Bonus from remaining PP: " + bonusPoints + "<br>Your Metapod died " + metaDeathCount + " time(s)!";
 
-				clearInterval( startTime );
 				$( "#stats" ).addClass( "hideMe" );
 				$( "#nextBtn" ).addClass( "hideMe" );
 				$( "#backBtn" ).addClass( "hideMe" );
@@ -411,15 +427,15 @@
 				var currentUserInfo = {
 					"name": document.getElementById( "enterNameHere" ).value,
 					"corAnsw": correctAnsCount,
-					"mstime": ms
+					"deaths": metaDeathCount
 				};
 
 				for( var z = 0; z < arrayOfPrevBestScores.length; z++ ){
 
-					if( currentUserInfo.mstime < arrayOfPrevBestScores[z].mstime ){
+					if( currentUserInfo.deaths < arrayOfPrevBestScores[z].deaths ){
 
 						arrayOfPrevBestScores.push(currentUserInfo);
-						arrayOfPrevBestScores.sort( function(a, b){ return a.mstime - b.mstime; } );
+						arrayOfPrevBestScores.sort( function(a, b){ return a.deaths - b.deaths; } );
 						arrayOfPrevBestScores.pop();
 						document.getElementById( "newHighScore" ).innerHTML = "You've made it into the Hall of Fame!";
 						localStorage.setItem( "arrayOfBestScores", JSON.stringify( arrayOfPrevBestScores ) );
@@ -443,11 +459,11 @@
 				for( var y = 0; y < highScores.length; y++){
 					if( y === 0 ){
 						writeChampsNamesHere[y].textContent = "PokeChamp " + highScores[y].name;
-						writeChampsTimesHere[y].textContent = highScores[y].mstime + "s";
+						writeChampsTimesHere[y].textContent = highScores[y].deaths + " Deaths";
 					}
 					else{
 						writeChampsNamesHere[y].textContent = "Elite Four " + highScores[y].name;
-						writeChampsTimesHere[y].textContent = highScores[y].mstime + "s";
+						writeChampsTimesHere[y].textContent = highScores[y].deaths + " Deaths";
 					}
 				}
 
@@ -479,14 +495,6 @@
 
 				$( "#startOfQuiz" ).removeClass( "displayNone" );
 				updateAudioSrc( "sounds/pokeOpening.ogg", "sounds/pokeOpening.mp3");
-			};
-
-			//make the timer go tick tock
-			var tickTock = function(){
-
-				ms++;
-
-				document.getElementById("timer").innerHTML = ms + "s";
 			};
 
 			//pause or play background music
@@ -533,38 +541,46 @@
 				});
 			};
 
+			//check whether to actually use Harden or to use Struggle
 			var useHarden = function(){
 				
 				$( document ).keydown( function( key ){
 					
 					if( parseInt( key.which, 10 ) === 68 ){
 
-						if( gameOver === false && powerPoints === 0 ){
+						if( gameOver === false && powerPoints === 0 && currentlyDead !== true ){
 							
 							key.preventDefault();
 							useStruggle();
 						}
 
-						else if( gameOver === false && powerPoints	> 0 ){
+						else if( gameOver === false && powerPoints	> 0 && currentlyDead !== true ){
 
 							key.preventDefault();
-
-							var pikaYPos = getYPosition( "pikachu" );
-
-							$( "#harden" ).removeClass( "displayNone" );
-							setPosition( "harden", pikaYPos, "0" );
-
-							powerPoints	= powerPoints	- 1;
-							damageDealtByEnemy = Math.floor( damageDealtByEnemy	/ 2 );
-							$( "#hud" ).html( "Metapod used Harden! Enemy Dmg reduced.<br> PP: " + powerPoints + "/10" );
-							$( "#dmgTaken" ).html( "Enemy Dmg: " + damageDealtByEnemy );
-
-							setTimeout( function(){ $( "#harden" ).addClass( "displayNone" ); }, 500 );
+							actuallyUseHarden();
+							
 						}
 					}
 				});
 			};
 
+			//actually use Harden
+			var actuallyUseHarden = function(){
+				var pikaYPos = getYPosition( "pikachu" );
+
+				$( "#harden" ).removeClass( "displayNone" );
+				setPosition( "harden", pikaYPos, "0" );
+
+				powerPoints	= powerPoints	- 1;
+				damageDealtByEnemy = damageDealtByEnemy	- 10;
+				$( "#hud" ).html( "Metapod used Harden! Enemy Dmg reduced." );
+				$( "#dmgTaken" ).html( "Enemy Dmg: " + damageDealtByEnemy );
+				$( "#metaPP" ).html( "Metapod PP: " + powerPoints );
+
+				setTimeout( function(){ $( "#harden" ).addClass( "displayNone" ); }, 500 );
+			};
+
+			//check whether to actually use Stringshot or to use Struggle
 			var useStringShot = function(){
 
 				$( document ).keydown( function( key ){
@@ -573,30 +589,37 @@
 
 						key.preventDefault();
 
-						if( gameOver === false && powerPoints === 0 ){
+						if( gameOver === false && powerPoints === 0 && currentlyDead !== true ){
 							
 							useStruggle();
 						}
 
-						else if( gameOver === false && powerPoints	> 0 ){
+						else if( gameOver === false && powerPoints	> 0 && currentlyDead !== true ){
 
 							if( getXPosition( "stringshot" ) < 355 ){
 
-								var pikaYPos = getYPosition( "pikachu" );
-								var inFrontOfPika = getXPosition( "pikachu" )  / 6;
-
-								$( "#stringshot" ).removeClass( "displayNone" );
-								$( "#stringshot" ).css( "border-color", "transparent #e4e4e4 transparent transparent" );
-								setPosition( "stringshot", pikaYPos, inFrontOfPika );
-
-								stringshotFired = true;
-
-								powerPoints = powerPoints - 1;
-								$( "#hud" ).html( "Metapod used Stringshot! Enemy Spd reduced on hit.<br> PP: " + powerPoints + "/10" );
+								actuallyUseStringShot();
+								
 							}
 						}
 					}
 				});
+			};
+
+			//actually use Stringshot
+			var actuallyUseStringShot = function(){
+				var pikaYPos = getYPosition( "pikachu" );
+				var inFrontOfPika = getXPosition( "pikachu" )  / 6;
+
+				$( "#stringshot" ).removeClass( "displayNone" );
+				$( "#stringshot" ).css( "border-color", "transparent #e4e4e4 transparent transparent" );
+				setPosition( "stringshot", pikaYPos, inFrontOfPika );
+
+				stringshotFired = true;
+
+				powerPoints = powerPoints - 1;
+				$( "#hud" ).html( "Metapod used Stringshot! Enemy Spd reduced on hit." );
+				$( "#metaPP" ).html( "Metapod PP: " + powerPoints );
 			};
 
 			var moveStringshot = function(){
@@ -626,16 +649,21 @@
 
 			var useStruggle = function(){
 
-				$("#pikachu").addClass( "struggle" );
+				if( currentlyDead !== true && invincible !== true ){
+					$("#pikachu").addClass( "struggle" );
 
-				document.getElementById( "timer"  ).style.color = "#ff0000";
-				ms = ms + 3000;
-				$( "#hud" ).html( "Metapod has no PP! Metapod used Struggle and hurt itself!");
+					document.getElementById( "metaHP"  ).style.color = "#ff0000";
+					metaHealth = Math.ceil( metaHealth / 2 );
+					$( "#hud" ).html( "Metapod has no PP! Metapod used Struggle and hurt itself!");
+					$( "#metaHP" ).html( "Metapod HP: " + metaHealth );
 
-				setTimeout( function(){ 
-					$( "#pikachu" ).removeClass( "struggle" ); 
-					document.getElementById( "timer"  ).style.color = "#ffffff"; 
-				}, 500 );
+
+					setTimeout( function(){ 
+						$( "#pikachu" ).removeClass( "struggle" ); 
+						document.getElementById( "metaHP"  ).style.color = "#b4e652"; 
+					}, 500 );
+				}
+				
 			};
 
 			//animate the enemy chasing pikachu
@@ -687,11 +715,20 @@
 				}	
 			};
 
-			var timeDamage = function(){
+			var hpDamage = function(){
 
-				document.getElementById("timer").style.color = "#ff0000";
-				setTimeout( function(){ document.getElementById("timer").style.color = "#f0f0f0"; }, 300 );
-				ms = ms + damageDealtByEnemy;
+				if( invincible !== true ){
+					document.getElementById( "metaHP" ).style.color = "#ff0000";
+					setTimeout( function(){ document.getElementById( "metaHP" ).style.color = "#b4e652"; }, 300 );
+
+					metaHealth = metaHealth - damageDealtByEnemy;
+
+					if( metaHealth <= 0 ){
+						metaHealth = 0;
+					}
+
+					$( "#metaHP" ).html( "Metapod HP: " + metaHealth );
+				}
 			};
 
 
@@ -772,11 +809,46 @@
 			}
 		};
 
+		var isPikaDead = function(){
+
+			if( metaHealth <= 0 && currentlyDead !== true ){
+				
+				currentlyDead = true;
+				$( "#pikachu" ).addClass( "displayNone" );
+				metaDeathCount = metaDeathCount + 1;
+				$( "#metaDeathCounter" ).html( "Metapod Death Count: " + metaDeathCount );
+				$( "#hud" ).html( "Metapod died! You used a Revive on Metapod...");
+
+				setTimeout( function(){
+
+					if( gameOver === false ){
+						currentlyDead = false;
+						$( "#pikachu" ).removeClass( "displayNone" );
+						$( "#pikachu" ).addClass( "justRevived" );
+
+						metaHealth = 100;
+						$( "#metaHP" ).html( "Metapod HP: " + metaHealth );
+
+						invincible = true;
+					}		
+				}, 1000 );
+
+				setTimeout( function(){
+
+					if( gameOver === false ){
+						$( "#pikachu" ).removeClass( "justRevived" );
+						invincible = false;
+					}	
+				}, 3000 );
+			}
+		};
+
 		var mainGameLoop = function(){
 
 			if( new Date().getTime() - lastRun > gameLoopSpd ){
 
-				checkForHits( "pikachu", "fireball", timeDamage );
+				checkForHits( "pikachu", "fireball", hpDamage );
+				isPikaDead();
 				chasePika( "enemy1" );
 				shootFireBall("enemy1" );
 				moveStringshot();
@@ -807,49 +879,29 @@
 			});
 
 			pikaHamManager.on( "tap", function( e ){
-				if( gameOver === false && powerPoints === 0 ){
+				if( gameOver === false && powerPoints === 0 && currentlyDead !== true ){
 
 					useStruggle();
 				}
 
-				else if( gameOver === false && powerPoints	> 0 ){
+				else if( gameOver === false && powerPoints	> 0 && currentlyDead !== true ){
 
 					if( getXPosition( "stringshot" ) < 355 ){
 
-						var pikaYPos = getYPosition( "pikachu" );
-						var inFrontOfPika = getXPosition( "pikachu" )  / 6;
-
-						$( "#stringshot" ).removeClass( "displayNone" );
-						$( "#stringshot" ).css( "border-color", "transparent #e4e4e4 transparent transparent" );
-						setPosition( "stringshot", pikaYPos, inFrontOfPika );
-
-						stringshotFired = true;
-
-						powerPoints = powerPoints - 1;
-						$( "#hud" ).html( "Metapod used Stringshot! Enemy Spd reduced on hit.<br> PP: " + powerPoints + "/10" );
+						actuallyUseStringShot();
 					}
 				}
 			});
 
 			pikaHamManager.on( "press", function( e ){
-				if( gameOver === false && powerPoints === 0 ){
+				if( gameOver === false && powerPoints === 0 && currentlyDead !== true ){
 
 					useStruggle();
 				}
 
-				else if( gameOver === false && powerPoints	> 0 ){
+				else if( gameOver === false && powerPoints	> 0 && currentlyDead !== true ){
 
-					var pikaYPos = getYPosition( "pikachu" );
-
-					$( "#harden" ).removeClass( "displayNone" );
-					setPosition( "harden", pikaYPos, "0" );
-
-					powerPoints	= powerPoints	- 1;
-					damageDealtByEnemy = Math.floor( damageDealtByEnemy	/ 2 );
-					$( "#hud" ).html( "Metapod used Harden! Enemy Dmg reduced.<br> PP: " + powerPoints + "/10" );
-					$( "#dmgTaken" ).html( "Enemy Dmg: " + damageDealtByEnemy );
-
-					setTimeout( function(){ $( "#harden" ).addClass( "displayNone" ); }, 500 );
+					actuallyUseHarden();
 				}
 			});
 

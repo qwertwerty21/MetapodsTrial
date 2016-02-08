@@ -78,11 +78,20 @@
                         </div>
                     </div>
 
-                    <div id="stats" class="hideMe status-update">
-                        <div id="timer" class="timer"></div> 
-                        <div id="hud" class="heads-up"></div> 
-                        <div id="dmgTaken" class="def-spd"></div>
-                        <div id="enemySpeed" class="def-spd"></div>    
+                    <div id="stats" class="hideMe status-update clearfix">
+                        <div id="metaDeathCounter" class="meta-death"></div>
+                        <div id="hud" class="heads-up"></div>
+                        <br>
+                        <div class="meta-stats">
+                            <div id="metaHP" class="meta-HP"></div>
+                            <div id="metaPP" class="meta-PP"></div> 
+                        </div>
+                         
+                        
+                        <div class="enemy-stats">
+                            <div id="dmgTaken" class="def-spd"></div>
+                            <div id="enemySpeed" class="def-spd"></div>  
+                        </div>    
                     </div>
                     
 
@@ -105,6 +114,7 @@
                             <p>'Space Bar' / 'Tap On Metapod' = <br><span class="ctrl-action">Stringshot*</span></p>
                         </div>
                         <div class="tip">*Move limited by available PP</div>
+                        <div class="tip">*Use PP wisely! Every remaining 2 PP subtracts 1 Death from your score!</div>
                         <h3 id="startQuiz" class="start-msg">Are You Ready?</h3>
                         <input type="button" id="startQuizBtn" class="start-quiz-btn poke-btn" value="Start!">
                     </div>
