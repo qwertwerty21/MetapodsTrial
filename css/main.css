@@ -834,6 +834,34 @@ h2{
         }
   }
 
+  @media only screen and (max-width: 680px) {
+        
+        .meta-death{
+            font-size: .6em;
+        }
+
+        .heads-up{
+            font-size: .5em;
+        }
+
+        .meta-stats{
+            font-size: .4em;
+        }
+
+        .enemy-stats{
+            font-size: .4em;
+        }
+
+        .quiz-question{
+            font-size: .6em;  
+        }
+
+        .read-text{
+            font-size: .95em;
+            padding: 1.15em;
+        }
+  }
+
   /*Screen Orientation Media Queries*/
 
   @media all and ( orientation:portrait ){
