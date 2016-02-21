@@ -313,9 +313,9 @@
         text-shadow: -1px -1px 2px #ffffff;
     }
 
-    /*PIKACHU MINIGAME*/
+    /*METAPOD MINIGAME*/
 
-    .my-pika{
+    .my-meta{
         background-image: url('../img/meta.png');
         background-position: center;
         background-size: 11em;
@@ -800,7 +800,7 @@ h2{
             right: 0;
         }
 
-        .my-pika{
+        .my-meta{
             background-size: 6.5em;
             height: 3.5em;
             width: 4.5em;

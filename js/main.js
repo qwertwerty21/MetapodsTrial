@@ -1,3 +1,4 @@
+			/*jslint white: true */
 			var allQuestions = [
 			{
 				question: "What's the matter?",
@@ -125,10 +126,10 @@
 			//change start screen metapod quotes randomly every 5 secs
 			$( document ).ready( function(){
 				setInterval( function(){
-					if( gameOver != false ){
+					if( gameOver !== false ){
 						var newMetaQuote = getRandomNumber( metaQuotes.length );
-						document.getElementById( "metaStartQuote" ).innerHTML = metaQuotes[ newMetaQuote ];  
-					};
+						$( "#metaStartQuote" ).html( metaQuotes[ newMetaQuote ] );  
+					}
 				}, 5000 );
 			});
 			
@@ -153,8 +154,8 @@
 				$( "#startOfQuiz" ).addClass( "displayNone" );
 				$( "h1" ).addClass( "displayNone" );
 
-				$( "#pikachu" ).removeClass( "displayNone" );
-				setPosition( "pikachu", "200" );
+				$( "#mainMetapod" ).removeClass( "displayNone" );
+				setPosition( "mainMetapod", "200" );
 				$( "#enemy1" ).removeClass( "displayNone" );
 				setPosition( "enemy1", "350", "0", true );
 
@@ -164,6 +165,8 @@
 			//set position of element according to x and y 
 			var setPosition = function( elementId, yPos, xPos, setFromRight ){
 				
+				elementId = "#" + elementId;
+
 				if( yPos === undefined ){
 					yPos = 0;
 				}
@@ -173,14 +176,14 @@
 				}
 
 				if( setFromRight === true ){
-					document.getElementById( elementId ).style.right = xPos + "px";
+					$( elementId ).css( { right: xPos + "px" } );
 				}
 
 				else{
-					document.getElementById( elementId ).style.left = xPos + "px";
+					$( elementId ).css( { left: xPos + "px" } );
 				}
 
-				document.getElementById( elementId ).style.top = yPos + "px";
+				$( elementId ).css( { top: yPos + "px" } );
 				
 			};
 
@@ -211,19 +214,17 @@
 				$( "#dmgTaken" ).html( "Enemy Dmg: " + damageDealtByEnemy );
 				$( "#enemySpeed" ).html( "Enemy Spd: " + enemyMoveSpd );
 
-				if( $( "#pikachu" ).hasClass( "justRevived" ) ){
-					$( "#pikachu" ).removeClass( "justRevived" );
+				if( $( "#mainMetapod" ).hasClass( "justRevived" ) ){
+					$( "#mainMetapod" ).removeClass( "justRevived" );
 				}
 
 			};
 
 			var showTds = function(){
 
-				var tdArray = document.myForm.querySelectorAll( "td" );
+				var tdArray = $("td");
 
-				for( var x = 0; x < 7; x++ ){
-					tdArray[x].className = tdArray[x].className.replace( "hideMe", "" );
-				}
+				tdArray.removeClass('hideMe');
 			};
 
 			//get current question from list and load it to the screen, hide back button if user can't go back, check answers upon finishing last question
@@ -240,7 +241,7 @@
 					return;			
 				}
 				
-				document.getElementById( "questionHere" ).innerHTML = curQuestion.question;
+				$( "#questionHere" ).html( curQuestion.question ); 
 
 				for( var i = 0; i < possibleAnsLabel.length; i++){
 					possibleAnsLabel[i].innerHTML = curQuestion.choices[i];
@@ -366,13 +367,13 @@
 
 				$( "#endOfQuiz" ).removeClass( "hideMe" );
 				
-				document.getElementById( "showScore" ).innerHTML = "Correct Answers: " + correctAnsCount + " out of " + questionCount + " questions</br>" + "Bonus from remaining PP: " + bonusPoints + "<br>Your Metapod died " + metaDeathCount + " time(s)!";
+				$( "#showScore" ).html( "Correct Answers: " + correctAnsCount + " out of " + questionCount + " questions</br>" + "Bonus from remaining PP: " + bonusPoints + "<br>Your Metapod died " + metaDeathCount + " time(s)!" );
 
 				$( "#stats" ).addClass( "hideMe" );
 				$( "#nextBtn" ).addClass( "hideMe" );
 				$( "#backBtn" ).addClass( "hideMe" );
 				
-				$( "#pikachu" ).addClass( "displayNone" );
+				$( "#mainMetapod" ).addClass( "displayNone" );
 				$( "#enemy1" ).addClass( "displayNone" );
 				$( "#fireball" ).addClass( "displayNone" );
 
@@ -398,7 +399,7 @@
 			//validate input, access localStorage to get prev record or make a new record. 
 			var onEnterNameBtn = function(){			
 
-				if( document.getElementById( "enterNameHere" ).value !== "" ){
+				if( $( "#enterNameHere" ).val() !== "" ){
 					
 					localStorage.setItem( "arrayOfBestScores", JSON.stringify( arrayOfPrevBestScores ) );
 					$( "#enterNameSect" ).addClass( "hideMe" );
@@ -409,14 +410,14 @@
 					}
 
 					else{
-						document.getElementById( "newHighScore" ).innerHTML = "You lost to the Elite Four. Try again!";
+						$( "#newHighScore" ).html( "You lost to the Elite Four. Try again!" );
 						showListOfHighScores();
 					}
 				}
 				
 				else{
-					document.querySelector("[for='enterNameHere']").className = "warning";
-					document.getElementById( "enterNameHere" ).focus();
+					$( "[for='enterNameHere']" ).addClass( "warning" );
+					$( "#enterNameHere" ).focus();
 					return false;
 				}
 			};
@@ -425,7 +426,7 @@
 			var checkIfUserEnterHallOfFame = function(){
 
 				var currentUserInfo = {
-					"name": document.getElementById( "enterNameHere" ).value,
+					"name": $( "#enterNameHere" ).val(),
 					"corAnsw": correctAnsCount,
 					"deaths": metaDeathCount
 				};
@@ -437,14 +438,14 @@
 						arrayOfPrevBestScores.push(currentUserInfo);
 						arrayOfPrevBestScores.sort( function(a, b){ return a.deaths - b.deaths; } );
 						arrayOfPrevBestScores.pop();
-						document.getElementById( "newHighScore" ).innerHTML = "You've made it into the Hall of Fame!";
+						$( "#newHighScore" ).html( "You've made it into the Hall of Fame!" );
 						localStorage.setItem( "arrayOfBestScores", JSON.stringify( arrayOfPrevBestScores ) );
 						showListOfHighScores();
 						return;
 					}
 
 				}
-				document.getElementById( "newHighScore" ).innerHTML = "You lost to the Elite Four. Try again!";
+				$( "#newHighScore" ).html( "You lost to the Elite Four. Try again!" );
 				showListOfHighScores();
 			};
 
@@ -485,12 +486,12 @@
 					}
 				}
 				
-				document.querySelector("[for='enterNameHere']").className = ""; 
+				$( "[for='enterNameHere']" ).removeClass(); 
 
 				$( "#endOfQuiz" ).addClass( "hideMe" );
 				
-				document.getElementById( "showScore" ).innerHTML = "";
-				document.getElementById( "newHighScore" ).innerHTML = "";
+				$( "#showScore" ).html( "" );
+				$( "#newHighScore" ).html( "" );
 				$( "#tryAgainBtn" ).addClass( "displayNone" ); 
 
 				$( "#startOfQuiz" ).removeClass( "displayNone" );
@@ -499,43 +500,48 @@
 
 			//pause or play background music
 			var onBgmBtn = function(){
+
+				var bgmPlayer = document.getElementById( "bgmPlayer" );
 				
-				if( document.getElementById( "bgmPlayer" ).paused === true ){
-					document.getElementById( "bgmPlayer" ).play();
+				if( bgmPlayer.paused === true ){
+					bgmPlayer.play();
 					bgmPaused = false;
 				}
 				else{
-					document.getElementById( "bgmPlayer" ).pause();
+					bgmPlayer.pause();
 					bgmPaused = true;
 				}
 			};
 
 			//update music file on page change
 			var updateAudioSrc = function( ogg, mp3 ){
-				document.getElementById( "oggSrc" ).src = ogg;
-				document.getElementById( "mp3Src" ).src = mp3;
-				document.getElementById( "bgmPlayer" ).load();
+				
+				var bgmPlayer = document.getElementById( "bgmPlayer" );
+
+				$( "#oggSrc" ).attr( "src", ogg );
+				$( "#mp3Src" ).attr( "src", mp3 );
+				bgmPlayer.load();
 
 				if( bgmPaused === true ){
-					document.getElementById( "bgmPlayer" ).pause();
+					bgmPlayer.pause();
 				}
 			};
 
-			//controls for pikachu
-			var pikaControls = function(){
+			//controls for mainMetapod
+			var metaControls = function(){
 				
 				$( document ).keydown( function( key ){
 					
 					switch( parseInt( key.which, 10 ) ){
 						
 						case 87: 
-						ensureBoundaries( "pikachu" );
-						$( "#pikachu" ).animate( { top:"-=10px" }, 1 );
+						ensureBoundaries( "mainMetapod" );
+						$( "#mainMetapod" ).animate( { top:"-=10px" }, 1 );
 						break;
 						
 						case 83:
-						ensureBoundaries( "pikachu" );
-						$( "#pikachu" ).animate( { top:"+=10px" }, 1 );
+						ensureBoundaries( "mainMetapod" );
+						$( "#mainMetapod" ).animate( { top:"+=10px" }, 1 );
 						break;
 					}
 				});
@@ -566,10 +572,10 @@
 
 			//actually use Harden
 			var actuallyUseHarden = function(){
-				var pikaYPos = getYPosition( "pikachu" );
+				var metaYPos = getYPosition( "mainMetapod" );
 
 				$( "#harden" ).removeClass( "displayNone" );
-				setPosition( "harden", pikaYPos, "0" );
+				setPosition( "harden", metaYPos, "0" );
 
 				powerPoints	= powerPoints	- 1;
 				damageDealtByEnemy = damageDealtByEnemy	- 10;
@@ -608,12 +614,12 @@
 
 			//actually use Stringshot
 			var actuallyUseStringShot = function(){
-				var pikaYPos = getYPosition( "pikachu" );
-				var inFrontOfPika = getXPosition( "pikachu" )  / 6;
+				var metaYPos = getYPosition( "mainMetapod" );
+				var inFrontOfMeta = getXPosition( "mainMetapod" )  / 6;
 
 				$( "#stringshot" ).removeClass( "displayNone" );
 				$( "#stringshot" ).css( "border-color", "transparent #e4e4e4 transparent transparent" );
-				setPosition( "stringshot", pikaYPos, inFrontOfPika );
+				setPosition( "stringshot", metaYPos, inFrontOfMeta );
 
 				stringshotFired = true;
 
@@ -650,35 +656,35 @@
 			var useStruggle = function(){
 
 				if( currentlyDead !== true && invincible !== true ){
-					$("#pikachu").addClass( "struggle" );
+					$("#mainMetapod").addClass( "struggle" );
 
-					document.getElementById( "metaHP"  ).style.color = "#ff0000";
+					$( "#metaHP"  ).css( "color", "#ff0000" );
 					metaHealth = Math.ceil( metaHealth / 2 );
 					$( "#hud" ).html( "Metapod has no PP! Metapod used Struggle and hurt itself!");
 					$( "#metaHP" ).html( "Metapod HP: " + metaHealth );
 
 
 					setTimeout( function(){ 
-						$( "#pikachu" ).removeClass( "struggle" ); 
-						document.getElementById( "metaHP"  ).style.color = "#b4e652"; 
+						$( "#mainMetapod" ).removeClass( "struggle" ); 
+						$( "#metaHP"  ).css( "color", "#b4e652" );
 					}, 500 );
 				}
 				
 			};
 
-			//animate the enemy chasing pikachu
-			var chasePika = function( elementId ){
-				var pikaPos = parseInt( getYPosition( "pikachu" ), 10 );
+			//animate the enemy chasing mainMetapod
+			var chaseMeta = function( elementId ){
+				var metaPos = parseInt( getYPosition( "mainMetapod" ), 10 );
 				var enemyPos = parseInt( getYPosition( "enemy1"), 10 );
 				var pxToMove = getRandomNumber( enemyMoveSpd );
 
 				ensureBoundaries( "enemy1", 0, true );
 
-				if( pikaPos < enemyPos ){
+				if( metaPos < enemyPos ){
 					$( "#" + elementId ).animate( { top:"-=" + pxToMove + "px" }, 1 );
 				}
 
-				else if( pikaPos > enemyPos ){
+				else if( metaPos > enemyPos ){
 					$( "#" + elementId ).animate( { top:"+=" + pxToMove + "px" }, 1 );
 				}
 
@@ -700,7 +706,7 @@
 					return;
 				}
 				
-				if( getXPosition( "fireball" ) < getXPosition( "pikachu" ) ){
+				if( getXPosition( "fireball" ) < getXPosition( "mainMetapod" ) ){
 
 					var enemyYPos = getYPosition( elementId );
 					var inFrontOfEnemy = getXPosition( elementId ) * 7 / 10;
@@ -718,8 +724,8 @@
 			var hpDamage = function(){
 
 				if( invincible !== true ){
-					document.getElementById( "metaHP" ).style.color = "#ff0000";
-					setTimeout( function(){ document.getElementById( "metaHP" ).style.color = "#b4e652"; }, 300 );
+					$( "#metaHP"  ).css( "color", "#ff0000" );
+					setTimeout( function(){ $( "#metaHP"  ).css( "color", "#b4e652" ); }, 300 );
 
 					metaHealth = metaHealth - damageDealtByEnemy;
 
@@ -742,7 +748,7 @@
 				var curPos = getYPosition( elementId );
 				var docuH = $( document ).height();
 				var ceilingBound = docuH / 10;
-				var baseBound = docuH * 7 / 10;
+				var baseBound = docuH * 6.5 / 10;
 
 				if( xPos === undefined ){
 					xPos = 0;
@@ -809,12 +815,12 @@
 			}
 		};
 
-		var isPikaDead = function(){
+		var isMetaDead = function(){
 
 			if( metaHealth <= 0 && currentlyDead !== true ){
 				
 				currentlyDead = true;
-				$( "#pikachu" ).addClass( "displayNone" );
+				$( "#mainMetapod" ).addClass( "displayNone" );
 				metaDeathCount = metaDeathCount + 1;
 				$( "#metaDeathCounter" ).html( "Metapod Death Count: " + metaDeathCount );
 				$( "#hud" ).html( "Metapod died! You used a Revive on Metapod...");
@@ -823,8 +829,8 @@
 
 					if( gameOver === false ){
 						currentlyDead = false;
-						$( "#pikachu" ).removeClass( "displayNone" );
-						$( "#pikachu" ).addClass( "justRevived" );
+						$( "#mainMetapod" ).removeClass( "displayNone" );
+						$( "#mainMetapod" ).addClass( "justRevived" );
 
 						metaHealth = 100;
 						$( "#metaHP" ).html( "Metapod HP: " + metaHealth );
@@ -836,7 +842,7 @@
 				setTimeout( function(){
 
 					if( gameOver === false ){
-						$( "#pikachu" ).removeClass( "justRevived" );
+						$( "#mainMetapod" ).removeClass( "justRevived" );
 						invincible = false;
 					}	
 				}, 3000 );
@@ -847,9 +853,9 @@
 
 			if( new Date().getTime() - lastRun > gameLoopSpd ){
 
-				checkForHits( "pikachu", "fireball", hpDamage );
-				isPikaDead();
-				chasePika( "enemy1" );
+				checkForHits( "mainMetapod", "fireball", hpDamage );
+				isMetaDead();
+				chaseMeta( "enemy1" );
 				shootFireBall("enemy1" );
 				moveStringshot();
 				lastRun = new Date().getTime();	
@@ -864,21 +870,21 @@
 
 		$( document ).ready( function(){
 			
-			var myPika = document.getElementById( "pikachu" );
+			var myMeta = document.getElementById( "mainMetapod" );
 
-			var pikaHamManager = new Hammer( myPika );
+			var metaHamManager = new Hammer( myMeta );
 
-			pikaHamManager.on( "panleft", function( e ){
-				ensureBoundaries( "pikachu" );
-				$( "#pikachu" ).animate( { top:"-=5px" }, 1 );
+			metaHamManager.on( "panleft", function( e ){
+				ensureBoundaries( "mainMetapod" );
+				$( "#mainMetapod" ).animate( { top:"-=5px" }, 1 );
 			});
 
-			pikaHamManager.on( "panright", function( e ){
-				ensureBoundaries( "pikachu" );
-				$( "#pikachu" ).animate( { top:"+=5px" }, 1 );
+			metaHamManager.on( "panright", function( e ){
+				ensureBoundaries( "mainMetapod" );
+				$( "#mainMetapod" ).animate( { top:"+=5px" }, 1 );
 			});
 
-			pikaHamManager.on( "tap", function( e ){
+			metaHamManager.on( "tap", function( e ){
 				if( gameOver === false && powerPoints === 0 && currentlyDead !== true ){
 
 					useStruggle();
@@ -893,7 +899,7 @@
 				}
 			});
 
-			pikaHamManager.on( "press", function( e ){
+			metaHamManager.on( "press", function( e ){
 				if( gameOver === false && powerPoints === 0 && currentlyDead !== true ){
 
 					useStruggle();
@@ -977,7 +983,7 @@
 
 			window.addEventListener( "load", useStringShot );
 			window.addEventListener( "load", useHarden );
-			window.addEventListener( "load", pikaControls );
+			window.addEventListener( "load", metaControls );
 			document.getElementById( "startQuizBtn" ).addEventListener( "click", showBtns );
 			document.getElementById( "bgmBtn" ).addEventListener( "click", onBgmBtn );
 			document.getElementById( "enterNameBtn" ).addEventListener( "click", onEnterNameBtn );
